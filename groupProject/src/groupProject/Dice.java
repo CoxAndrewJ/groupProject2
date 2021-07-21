@@ -4,4 +4,6 @@ public class Dice {
 
 	String hello;
 	
+	String canupdate;
+	
 }
