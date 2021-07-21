@@ -8,4 +8,5 @@ public class Dice
 	private int e;
 	private int f;
 	private int deeznutz;
+	//asdfawdfasdfasd 
 }
