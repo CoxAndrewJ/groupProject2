@@ -6,6 +6,7 @@ public class Dice
 	String hello;
 
 	String canupdate;
-	private int deeznutz = 2;
+	private int deeznutz = 3;
+	fun tiems;
 
 }
