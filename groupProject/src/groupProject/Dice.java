@@ -7,4 +7,5 @@ public class Dice
 	private int d;
 	private int e;
 	private int f;
+	private int deeznutz;
 }
