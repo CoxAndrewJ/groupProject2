@@ -78,7 +78,7 @@ public class GameBoard
 		}
 		for (int index = 0; index < data.size(); index++)
 		{
-			JButton button = new JButton();
+			JButton button = new JButton("" + index);
 			button.setBounds(0, 50, 50, 50);
 			gameBoard.add(button);
 
@@ -126,16 +126,20 @@ public class GameBoard
 		gameInteractionPanel.setLayout(new GridLayout(0, 2, 10, 10));
 
 		JButton moveBtn = new JButton("Move");
+		moveBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
 		gameInteractionPanel.add(moveBtn);
 
 		JButton lootBtn = new JButton("Loot");
+		lootBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
 		lootBtn.setHorizontalTextPosition(SwingConstants.CENTER);
 		gameInteractionPanel.add(lootBtn);
 
 		JButton attackBtn = new JButton("Attack");
+		attackBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
 		gameInteractionPanel.add(attackBtn);
 
 		JButton openBtn = new JButton("Open");
+		openBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
 		gameInteractionPanel.add(openBtn);
 		return gameInteractionPanel;
 	}
