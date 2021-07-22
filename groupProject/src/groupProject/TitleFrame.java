@@ -90,9 +90,9 @@ public class TitleFrame extends JFrame
 		// Set the properties of the frame and add the layered pane
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(dim.width / 6, dim.height / 8 - 50, 1260, 900);
-		frame.setLayout(null);
+		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
-		frame.add(layeredPane);
+		frame.getContentPane().add(layeredPane);
 
 	}
 
@@ -162,9 +162,13 @@ public class TitleFrame extends JFrame
 		characterPnl.setBackground(new Color(139, 0, 0));
 
 		JCheckBox char1chx = new JCheckBox("Character 1"); // Character names are still just placeholders
+		char1chx.setIcon(new ImageIcon(TitleFrame.class.getResource("/resources/old-woman-pistol.png")));
 		JCheckBox char2chx = new JCheckBox("Character 2");
+		char2chx.setIcon(new ImageIcon(TitleFrame.class.getResource("/resources/angry-guy.png")));
 		JCheckBox char3chx = new JCheckBox("Character 3");
+		char3chx.setIcon(new ImageIcon(TitleFrame.class.getResource("/resources/portly-mobster-wearing-suit.png")));
 		JCheckBox char4chx = new JCheckBox("Character 4");
+		char4chx.setIcon(new ImageIcon(TitleFrame.class.getResource("/resources/pirate-kid.png")));
 		characterPnl.setLayout(new GridLayout(0, 4, 0, 0));
 
 		characterPnl.add(char1chx);
