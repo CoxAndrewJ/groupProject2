@@ -7,10 +7,5 @@ public class Dice
 	private int d;
 	private int f;
 	private int deeznutz;
-	// asdfawdfasdfasd
-	/* FIXED */
-
-	// hello
-	// update
 
 }
