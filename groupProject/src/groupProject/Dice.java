@@ -7,13 +7,10 @@ public class Dice
 	private int d;
 	private int f;
 	private int deeznutz;
-	//asdfawdfasdfasd 
-	/*FIXED*/
-	
-	//hello
-	// update
-<<<<<<< HEAD
+	// asdfawdfasdfasd
+	/* FIXED */
 
-=======
->>>>>>> branch 'master' of https://github.com/Noticeably/groupProject2.git
+	// hello
+	// update
+
 }
