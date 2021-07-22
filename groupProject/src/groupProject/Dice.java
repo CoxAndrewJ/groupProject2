@@ -7,11 +7,9 @@ public class Dice
 	private int d;
 	private int f;
 	private int deeznutz;
-<<<<<<< HEAD
 	//asdfawdfasdfasd 
+	/*FIXED*/
 	
 	//hello
-=======
 	// update
->>>>>>> branch 'master' of https://github.com/Noticeably/groupProject2
 }
