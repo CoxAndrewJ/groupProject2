@@ -8,9 +8,11 @@ import java.awt.GridLayout;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,6 +26,8 @@ import javax.swing.border.EmptyBorder;
 
 public class GameBoard // implements ActionListener
 {
+	// List of values that are the buildings
+	public List<Integer> buildingSquares = new ArrayList<>();
 
 	private JPanel contentPane;
 
@@ -75,6 +79,8 @@ public class GameBoard // implements ActionListener
 		contentPane.add(gameBoard, BorderLayout.CENTER);
 		gameBoard.setLayout(new GridLayout(5, 5));
 
+		Collections.addAll(buildingSquares, 0, 2, 3, 4, 5, 12, 13, 15, 17, 18, 20, 22, 23);
+
 		// Creates 100 buttons for the game board
 		buttonsOnBoard(gameBoard);
 
@@ -117,6 +123,16 @@ public class GameBoard // implements ActionListener
 			JButton button = new JButton("" + index);
 			button.setBounds(0, 50, 50, 50);
 			gameBoard.add(button);
+
+			if (buildingSquares.contains(index))
+			{
+				ImageIcon floor = new ImageIcon(TitleFrame.class.getResource("/resources/woodfloor.jpg"));
+				button.setIcon(floor);
+			} else
+			{
+				ImageIcon outside = new ImageIcon(TitleFrame.class.getResource("/resources/grass.jpg"));
+				button.setIcon(outside);
+			}
 
 		}
 	}
