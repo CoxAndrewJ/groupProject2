@@ -9,6 +9,7 @@ public class Player {
 	private Weapon weapon;
 	private ImageIcon image;
 	
+
 	public Player() {
 		
 	}
@@ -27,5 +28,40 @@ public class Player {
 	
 	public void openDoor() {
 		
+	}
+	
+	
+	
+	//Getters and setters
+	public int getHealth() {
+		return health;
+	}
+
+	public void setHealth(int health) {
+		this.health = health;
+	}
+
+	public int getLocation() {
+		return location;
+	}
+
+	public void setLocation(int location) {
+		this.location = location;
+	}
+
+	public Weapon getWeapon() {
+		return weapon;
+	}
+
+	public void setWeapon(Weapon weapon) {
+		this.weapon = weapon;
+	}
+
+	public ImageIcon getImage() {
+		return image;
+	}
+
+	public void setImage(ImageIcon image) {
+		this.image = image;
 	}
 }

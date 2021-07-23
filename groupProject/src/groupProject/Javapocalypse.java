@@ -3,9 +3,7 @@ package groupProject;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-
-public class Javapocalypse extends JFrame implements ActionListener{
+public class Javapocalypse implements ActionListener{
 
 	public static Javapocalypse instance = new Javapocalypse();
 	public static TitleFrame frame;
