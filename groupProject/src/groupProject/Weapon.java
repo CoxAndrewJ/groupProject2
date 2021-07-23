@@ -11,9 +11,13 @@ package groupProject;
 public enum Weapon
 {
 
-	// Possible start with weaker unarmed state until chest are looted
-	// UNARMED(0,0,0,0),
-	BASEBALLBAT(0, 1, 3, 1), CHAINSAW(0, 5, 5, 2), PISTOL(1, 1, 4, 1), SHOTGUN(1, 2, 4, 2);
+	//start with weaker unarmed state until chests are looted
+	 UNARMED(0, 1, 1, 1),
+	 BASEBALLBAT(0, 1, 3, 1), 
+	 CHAINSAW(0, 5, 5, 2), 
+	 PISTOL(1, 1, 4, 1), 
+	 SHOTGUN(1, 2, 4, 2);
+	
 	// Possible upgraded weapons
 	// BASEBALLBATWITHNAILS()
 	// DOUBLECHAINSAW()

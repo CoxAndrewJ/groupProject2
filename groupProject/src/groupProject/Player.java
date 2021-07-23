@@ -4,14 +4,15 @@ import javax.swing.ImageIcon;
 
 public class Player {
 
-	private int health;
+	private int health = 5;
 	private int location;
-	private Weapon weapon;
+	private Weapon weapon = Weapon.UNARMED;
+	private String name;
 	private ImageIcon image;
-	
 
-	public Player() {
-		
+	public Player(String name, ImageIcon image) {
+		this.name = name;
+		this.image = image;
 	}
 	
 	public void move() {
@@ -56,12 +57,17 @@ public class Player {
 	public void setWeapon(Weapon weapon) {
 		this.weapon = weapon;
 	}
+	
+	public String getName() {
+		return name;
+	}
 
 	public ImageIcon getImage() {
 		return image;
 	}
-
+	
 	public void setImage(ImageIcon image) {
 		this.image = image;
 	}
+
 }
