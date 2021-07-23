@@ -67,7 +67,7 @@ public class Javapocalypse implements ActionListener{
 			return player;
 		}
 		else {
-			player = new Player("Pirate Kid", new ImageIcon(Javapocalypse.class.getResource("/resources/portlypirate-kid.png")));
+			player = new Player("Pirate Kid", new ImageIcon(Javapocalypse.class.getResource("/resources/pirate-kid.png")));
 			return player;
 		}
 	}
