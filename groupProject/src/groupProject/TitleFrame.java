@@ -34,8 +34,7 @@ public class TitleFrame extends JFrame
 	// Layered Pane is used for character selection frame, characters is a boolean
 	// array returning which characters are chosen
 	private JLayeredPane layeredPane;
-	private final boolean[] characters = {false, false, false, false, false};
-		
+	private boolean[] characters = new boolean[4];
 
 	// Additional fields used for functionality
 	private final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); // Used with setbounds, we take width and
@@ -91,9 +90,9 @@ public class TitleFrame extends JFrame
 		// Set the properties of the frame and add the layered pane
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(dim.width / 6, dim.height / 8 - 50, 1260, 900);
-		frame.getContentPane().setLayout(null);
+		frame.setLayout(null);
 		frame.setVisible(true);
-		frame.getContentPane().add(layeredPane);
+		frame.add(layeredPane);
 
 	}
 
@@ -129,7 +128,7 @@ public class TitleFrame extends JFrame
 			{
 				frame.dispose();
 				@SuppressWarnings("unused")
-				GameBoard gamePanel = new GameBoard();
+				GameBoard gamePanel = new GameBoard(characters);
 			}
 		});
 
@@ -162,30 +161,22 @@ public class TitleFrame extends JFrame
 		JPanel characterPnl = new JPanel();
 		characterPnl.setBackground(new Color(139, 0, 0));
 
-		//Create the characters and their checkboxes with images
-		JCheckBox char1chx = new JCheckBox("Character 1");
-		char1chx.setIcon(new ImageIcon(TitleFrame.class.getResource("/resources/old-woman-pistol.png")));
+		JCheckBox char1chx = new JCheckBox("Character 1"); // Character names are still just placeholders
 		JCheckBox char2chx = new JCheckBox("Character 2");
-		char2chx.setIcon(new ImageIcon(TitleFrame.class.getResource("/resources/angry-guy.png")));
 		JCheckBox char3chx = new JCheckBox("Character 3");
-		char3chx.setIcon(new ImageIcon(TitleFrame.class.getResource("/resources/portly-mobster-wearing-suit.png")));
 		JCheckBox char4chx = new JCheckBox("Character 4");
-		char4chx.setIcon(new ImageIcon(TitleFrame.class.getResource("/resources/pirate-kid.png")));
 		characterPnl.setLayout(new GridLayout(0, 4, 0, 0));
 
-		//Add all the checkboxes to the large component of characterPnl
 		characterPnl.add(char1chx);
 		characterPnl.add(char2chx);
 		characterPnl.add(char3chx);
 		characterPnl.add(char4chx);
 
 		// This is to make sure that we don't select more than 2 characters
-			//The boolean parameters passed are used to set on or off whether a character is chosen
-			//This is then used to determine which characters are used in game
-		checkBoxCheck(char1chx, 1);
-		checkBoxCheck(char2chx, 2);
-		checkBoxCheck(char3chx, 3);
-		checkBoxCheck(char4chx, 4);
+		checkBoxCheck(char1chx);
+		checkBoxCheck(char2chx);
+		checkBoxCheck(char3chx);
+		checkBoxCheck(char4chx);
 
 		// Add both the prompt and the character panel to the center panel
 		centerPnl.add(lblPrompt, BorderLayout.NORTH);
@@ -196,27 +187,27 @@ public class TitleFrame extends JFrame
 	/**
 	 * Checks if we have only 2 characters checked
 	 * 
-	 * @param charChx
+	 * @param char1chx
 	 */
-	private void checkBoxCheck(JCheckBox charChx, int charNum)
+	private void checkBoxCheck(JCheckBox char1chx)
 	{
-		charChx.addItemListener(new ItemListener()
+		char1chx.addItemListener(new ItemListener()
 		{
 			@Override
 			public void itemStateChanged(ItemEvent e)
 			{
-				if (!charChx.isSelected())
+				if (!char1chx.isSelected())
 				{
 					charactersSelected--;
-					characters[charNum] = false;
+					characters[0] = false;
 				} else
 				{
 					charactersSelected++;
-					characters[charNum] = true;
+					characters[0] = true;
 				}
 				if (charactersSelected == 3)
 				{
-					charChx.setSelected(false);
+					char1chx.setSelected(false);
 				}
 				if (charactersSelected == 2)
 				{
@@ -229,6 +220,11 @@ public class TitleFrame extends JFrame
 			}
 		});
 	}
+
+//TODO
+	// private void checkBoxListener(JCheckBox jCheckBox) {
+
+	// }
 
 	/**
 	 * This method is simple-- It creates the word "JAVAPOCALYPSE" that runs along
@@ -263,8 +259,4 @@ public class TitleFrame extends JFrame
 		jPanel.add(jLabel);
 	}
 
-	
-	public boolean[] getCharacters() {
-		return characters;
-	}
 }
