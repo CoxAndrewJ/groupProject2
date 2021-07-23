@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
 
 /**
  * 
@@ -205,15 +206,19 @@ public class TitleFrame extends JFrame
 			@Override
 			public void itemStateChanged(ItemEvent e)
 			{
+				//For when it's already checked and is being unchecked
 				if (!charChx.isSelected())
 				{
 					charactersSelected--;
-					characters[charNum] = false;
-				} else
+					characters[charNum] = false;	
+				} 
+				//For when it is being checked newly
+				else
 				{
 					charactersSelected++;
 					characters[charNum] = true;
 				}
+				
 				if (charactersSelected == 3)
 				{
 					charChx.setSelected(false);

@@ -15,7 +15,5 @@ public class Dice
 		int roll = rand.nextInt(sides) +1;
 		return roll;
 	}
-	
-
 
 }

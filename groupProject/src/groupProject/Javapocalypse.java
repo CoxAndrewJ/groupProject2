@@ -1,8 +1,5 @@
 package groupProject;
 
-import java.awt.EventQueue;
-
-
 public class Javapocalypse {
 
 	/**
