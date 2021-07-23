@@ -40,6 +40,7 @@ public class Javapocalypse implements ActionListener{
 		Player player1 = createPlayer();
 		Player player2 = createPlayer();
 		
+		//This is temp code to show a player made
 		System.out.println(player1.getHealth());
 		System.out.println(player1.getName());
 		System.out.println(player1.getLocation());
