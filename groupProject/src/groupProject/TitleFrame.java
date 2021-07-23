@@ -34,8 +34,8 @@ public class TitleFrame extends JFrame
 	// Layered Pane is used for character selection frame, characters is a boolean
 	// array returning which characters are chosen
 	private JLayeredPane layeredPane;
-	private final boolean[] characters = {false, false, false, false, false};
-		
+	private final boolean[] characters =
+	{ false, false, false, false, false };
 
 	// Additional fields used for functionality
 	private final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); // Used with setbounds, we take width and
@@ -90,8 +90,9 @@ public class TitleFrame extends JFrame
 
 		// Set the properties of the frame and add the layered pane
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setBounds(dim.width / 6, dim.height / 8 - 50, 1260, 900);
+		frame.setBounds(dim.width / 6, dim.height / 8 - 50, 1260, 800);
 		frame.getContentPane().setLayout(null);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.getContentPane().add(layeredPane);
 
@@ -121,9 +122,9 @@ public class TitleFrame extends JFrame
 		readyBtn.setBounds(0, 0, 50, 50);
 		readyPnl.add(readyBtn);
 
-		//Action listener to create gameboard in javapocalypse
+		// Action listener to create gameboard in javapocalypse
 		readyBtn.addActionListener(Javapocalypse.getInstance());
-		
+
 		// Add an action listener to the screen
 		readyBtn.addActionListener(new ActionListener()
 		{
@@ -163,7 +164,7 @@ public class TitleFrame extends JFrame
 		JPanel characterPnl = new JPanel();
 		characterPnl.setBackground(new Color(139, 0, 0));
 
-		//Create the characters and their checkboxes with images
+		// Create the characters and their checkboxes with images
 		JCheckBox char1chx = new JCheckBox("Character 1");
 		char1chx.setIcon(new ImageIcon(TitleFrame.class.getResource("/resources/old-woman-pistol.png")));
 		JCheckBox char2chx = new JCheckBox("Character 2");
@@ -174,15 +175,16 @@ public class TitleFrame extends JFrame
 		char4chx.setIcon(new ImageIcon(TitleFrame.class.getResource("/resources/pirate-kid.png")));
 		characterPnl.setLayout(new GridLayout(0, 4, 0, 0));
 
-		//Add all the checkboxes to the large component of characterPnl
+		// Add all the checkboxes to the large component of characterPnl
 		characterPnl.add(char1chx);
 		characterPnl.add(char2chx);
 		characterPnl.add(char3chx);
 		characterPnl.add(char4chx);
 
 		// This is to make sure that we don't select more than 2 characters
-			//The boolean parameters passed are used to set on or off whether a character is chosen
-			//This is then used to determine which characters are used in game
+		// The boolean parameters passed are used to set on or off whether a character
+		// is chosen
+		// This is then used to determine which characters are used in game
 		checkBoxCheck(char1chx, 1);
 		checkBoxCheck(char2chx, 2);
 		checkBoxCheck(char3chx, 3);
@@ -206,19 +208,19 @@ public class TitleFrame extends JFrame
 			@Override
 			public void itemStateChanged(ItemEvent e)
 			{
-				//For when it's already checked and is being unchecked
+				// For when it's already checked and is being unchecked
 				if (!charChx.isSelected())
 				{
 					charactersSelected--;
-					characters[charNum] = false;	
-				} 
-				//For when it is being checked newly
+					characters[charNum] = false;
+				}
+				// For when it is being checked newly
 				else
 				{
 					charactersSelected++;
 					characters[charNum] = true;
 				}
-				
+
 				if (charactersSelected == 3)
 				{
 					charChx.setSelected(false);
@@ -268,8 +270,8 @@ public class TitleFrame extends JFrame
 		jPanel.add(jLabel);
 	}
 
-	
-	public boolean[] getCharacters() {
+	public boolean[] getCharacters()
+	{
 		return characters;
 	}
 

@@ -53,10 +53,11 @@ public class GameBoard // implements ActionListener
 //Commented out for now		 save.addActionListener(this);
 		JTextArea ta = new JTextArea();
 		ta.setBounds(5, 5, 360, 320);
-		mainFrame.add(mb);
-		mainFrame.add(ta);
+//Commented out for now		mainFrame.add(mb);
+		mainFrame.getContentPane().add(ta);
 		mainFrame.setJMenuBar(mb);
-		mainFrame.setLayout(null);
+		mainFrame.getContentPane().setLayout(null);
+		mainFrame.setLocationRelativeTo(null);
 		mainFrame.setVisible(true);
 
 		contentPane = new JPanel();
@@ -157,6 +158,7 @@ public class GameBoard // implements ActionListener
 	private JPanel createGameInteractionPanel()
 	{
 		JPanel gameInteractionPanel = new JPanel();
+		gameInteractionPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
 		gameInteractionPanel.setBackground(Color.GRAY);
 		gameInteractionPanel.setLayout(new GridLayout(0, 2, 10, 10));
 
