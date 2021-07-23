@@ -122,6 +122,9 @@ public class TitleFrame extends JFrame
 		readyBtn.setBounds(0, 0, 50, 50);
 		readyPnl.add(readyBtn);
 
+		//Action listener to create gameboard in javapocalypse
+		readyBtn.addActionListener(Javapocalypse.getInstance());
+		
 		// Add an action listener to the screen
 		readyBtn.addActionListener(new ActionListener()
 		{
@@ -129,8 +132,6 @@ public class TitleFrame extends JFrame
 			public void actionPerformed(ActionEvent arg0)
 			{
 				frame.dispose();
-				@SuppressWarnings("unused")
-				GameBoard gamePanel = new GameBoard();
 			}
 		});
 
@@ -272,4 +273,5 @@ public class TitleFrame extends JFrame
 	public boolean[] getCharacters() {
 		return characters;
 	}
+
 }
