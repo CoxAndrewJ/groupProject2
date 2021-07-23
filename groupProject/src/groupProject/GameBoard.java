@@ -5,6 +5,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +16,15 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-public class GameBoard
+public class GameBoard implements ActionListener
 {
 
 	private JPanel contentPane;
@@ -28,6 +36,7 @@ public class GameBoard
 	 * 
 	 * @author Andrew
 	 */
+
 	public GameBoard()
 	{
 
@@ -36,6 +45,22 @@ public class GameBoard
 		mainFrame.setVisible(true);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setBounds(100, 100, 1500, 800);
+		// this creates teh menu bar so that we can have a save option
+		JMenuBar mb = new JMenuBar();
+		JMenu file = new JMenu("File");
+		mb.add(file);
+		JMenuItem save = new JMenuItem("Save");
+		file.add(save);
+		save.addActionListener(this);
+		JTextArea ta=new JTextArea();    
+		 ta.setBounds(5,5,360,320);    
+		mainFrame.add(mb);mainFrame.add(ta);    
+		mainFrame.setJMenuBar(mb);  
+		mainFrame.setLayout(null);    
+		mainFrame.setVisible(true);   
+		
+		
+		
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -61,7 +86,18 @@ public class GameBoard
 		contentPane.add(sidePanel, BorderLayout.EAST);
 
 		// mainFrame.setContentPane(contentPane); I think this is not needed.
-
+		
+	
+	
+	}
+	/**
+	 * event is in order to save from the menu bar. 
+	 * I am not sure why it is not recognizing those two variables but will figure it out later
+	 */
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == save) {
+			playerSaveFile(player1, player2);
+		}
 	}
 
 	/**
@@ -144,6 +180,11 @@ public class GameBoard
 		return gameInteractionPanel;
 	}
 
+	
+	
+	
+	
+	
 	private JPanel createResultsPanel()
 	{
 		JPanel resultsPanel = new JPanel();
@@ -182,5 +223,27 @@ public class GameBoard
 		 * JLabel lblNewLabel_1 = new JLabel("New label"); add(lblNewLabel_1);
 		 */
 		return resultsPanel;
+	}
+	//method to write the players data to a textfile. 
+	private void playerSaveFile(Player player1, Player player2) {
+		String fileData = "src.groupProject/TextFile/SaveData.txt";
+		
+		try(PrintWriter writer = new PrintWriter(fileData)){
+			writer.println(player1.getName());
+			writer.println(player1.getHealth());
+			writer.println(player1.getWeapon());
+			writer.println(player1.getImage());
+			writer.println(player1.getLocation());
+			
+			writer.println(player2.getName());
+			writer.println(player2.getHealth());
+			writer.println(player2.getWeapon());
+			writer.println(player2.getImage());
+			writer.println(player2.getLocation());
+			
+		}
+		catch(FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 }
