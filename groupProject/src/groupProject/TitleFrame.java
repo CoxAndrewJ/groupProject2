@@ -129,7 +129,7 @@ public class TitleFrame extends JFrame
 			{
 				frame.dispose();
 				@SuppressWarnings("unused")
-				GameBoard gamePanel = new GameBoard(characters);
+				GameBoard gamePanel = new GameBoard();
 			}
 		});
 

@@ -28,7 +28,7 @@ public class GameBoard
 	 * 
 	 * @author Andrew
 	 */
-	public GameBoard(boolean[] characters)
+	public GameBoard()
 	{
 
 		// Setting up basic properties of frame
