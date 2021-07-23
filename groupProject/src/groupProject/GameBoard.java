@@ -50,7 +50,7 @@ public class GameBoard
 		JPanel gameBoard = new JPanel();
 		gameBoard.setPreferredSize(new Dimension(50, 50));
 		contentPane.add(gameBoard, BorderLayout.CENTER);
-		gameBoard.setLayout(new GridLayout(0, 10, 0, 0));
+		gameBoard.setLayout(new GridLayout(5, 5));
 
 		// Creates 100 buttons for the game board
 		buttonsOnBoard(gameBoard);
@@ -72,7 +72,7 @@ public class GameBoard
 	private void buttonsOnBoard(JPanel gameBoard)
 	{
 		List<Integer> data = new ArrayList<>();
-		for (int i = 0; i < 100; i++)
+		for (int i = 0; i < 25; i++)
 		{
 			data.add(i);
 		}
