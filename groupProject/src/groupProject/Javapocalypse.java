@@ -37,8 +37,11 @@ public class Javapocalypse implements ActionListener{
 	public static void gameBoardMain() {
 		gameBoard = new GameBoard();
 		characters = frame.getCharacters();//this tells us which characters are which
+		
 		Player player1 = createPlayer();
 		Player player2 = createPlayer();
+		
+		Dice die = new Dice();
 		
 		//This is temp code to show a player made
 		System.out.println(player1.getHealth());
