@@ -124,15 +124,27 @@ public class GameBoard // implements ActionListener
 
 			JLayeredPane tile = new JLayeredPane();
 			tile.setBorder(new EmptyBorder(0, 0, 0, 0));
-			tile.setLayout(new GridLayout(0, 1, 10, 10));
+			// tile.setLayout(new GridLayout(2, 2, 10, 10));
 			tile.setOpaque(true);
 
+			JPanel panel = new JPanel();
+			panel.setLayout(new GridLayout(2, 2, 10, 10));
+
+			JLabel lbl1 = new JLabel("1");
+			JLabel lbl2 = new JLabel("2");
+			JLabel lbl3 = new JLabel("4");
+			JLabel lbl4 = new JLabel("3");
+			panel.add(lbl1);
+			panel.add(lbl2);
+			panel.add(lbl3);
+			panel.add(lbl4);
 			JButton button = new JButton();
 			button.setSize(100, 100);
 			button.setBounds(0, 50, 50, 50);
 			button.setContentAreaFilled(false);
 
-			tile.add(button);
+			tile.add(panel, JLayeredPane.DEFAULT_LAYER);
+			tile.add(button, JLayeredPane.DRAG_LAYER);
 			gameBoard.add(tile);
 
 			if (buildingSquares.contains(index))
