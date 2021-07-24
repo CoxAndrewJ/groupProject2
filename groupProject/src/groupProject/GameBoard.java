@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -82,7 +83,7 @@ public class GameBoard // implements ActionListener
 		Collections.addAll(buildingSquares, 0, 2, 3, 4, 5, 12, 13, 15, 17, 18, 20, 22, 23);
 
 		// Creates 100 buttons for the game board
-		buttonsOnBoard(gameBoard);
+		buttonBoard(gameBoard);
 
 		// Create a new panel to be on the East side, and hold two more panels--
 		// resultsPanel & gameInteractionPanel
@@ -111,7 +112,7 @@ public class GameBoard // implements ActionListener
 	 * 
 	 * @param gameBoard
 	 */
-	private void buttonsOnBoard(JPanel gameBoard)
+	private void buttonBoard(JPanel gameBoard)
 	{
 		List<Integer> data = new ArrayList<>();
 		for (int i = 0; i < 25; i++)
@@ -120,18 +121,27 @@ public class GameBoard // implements ActionListener
 		}
 		for (int index = 0; index < data.size(); index++)
 		{
-			JButton button = new JButton("" + index);
+
+			JLayeredPane tile = new JLayeredPane();
+			tile.setBorder(new EmptyBorder(0, 0, 0, 0));
+			tile.setLayout(new GridLayout(0, 1, 10, 10));
+			tile.setOpaque(true);
+
+			JButton button = new JButton();
+			button.setSize(100, 100);
 			button.setBounds(0, 50, 50, 50);
-			gameBoard.add(button);
+			button.setContentAreaFilled(false);
+
+			tile.add(button);
+			gameBoard.add(tile);
 
 			if (buildingSquares.contains(index))
 			{
-				ImageIcon floor = new ImageIcon(TitleFrame.class.getResource("/resources/woodfloor.jpg"));
-				button.setIcon(floor);
+				tile.setBackground(new Color(150, 90, 20));
+
 			} else
 			{
-				ImageIcon outside = new ImageIcon(TitleFrame.class.getResource("/resources/grass.jpg"));
-				button.setIcon(outside);
+				tile.setBackground(new Color(50, 185, 30));
 			}
 
 		}
@@ -205,22 +215,22 @@ public class GameBoard // implements ActionListener
 
 		JLabel healthLbl = new JLabel("Health: " /* + healthAmount */);
 		healthLbl.setFont(new Font("Tahoma", Font.PLAIN, 32));
-		healthLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		healthLbl.setHorizontalAlignment(SwingConstants.LEFT);
 		resultsPanel.add(healthLbl);
 
 		JLabel diceRollLbl = new JLabel("Dice Roll: " /* + dice.getRoll */);
 		diceRollLbl.setFont(new Font("Tahoma", Font.PLAIN, 32));
-		diceRollLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		diceRollLbl.setHorizontalAlignment(SwingConstants.LEFT);
 		resultsPanel.add(diceRollLbl);
 
 		JLabel actionsLbl = new JLabel("Actions: " /* + numberOfActions */);
 		actionsLbl.setFont(new Font("Tahoma", Font.PLAIN, 32));
-		actionsLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		actionsLbl.setHorizontalAlignment(SwingConstants.LEFT);
 		resultsPanel.add(actionsLbl);
 
 		JLabel objectiveLbl = new JLabel("Objective: " /* + objectiveNumber */);
 		objectiveLbl.setFont(new Font("Tahoma", Font.PLAIN, 32));
-		objectiveLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		objectiveLbl.setHorizontalAlignment(SwingConstants.LEFT);
 		resultsPanel.add(objectiveLbl);
 
 		// This label will be an image
@@ -229,6 +239,11 @@ public class GameBoard // implements ActionListener
 		statusIconLbl.setFont(new Font("Tahoma", Font.PLAIN, 32));
 		statusIconLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		resultsPanel.add(statusIconLbl);
+
+		JLabel playerLbl = new JLabel();
+		playerLbl.setPreferredSize(new Dimension(100, 100));
+		playerLbl.setIcon(new ImageIcon(TitleFrame.class.getResource("/resources/old-woman-pistol.png")));
+		resultsPanel.add(playerLbl);
 
 		// Potentially used to display a dice image
 		/*
