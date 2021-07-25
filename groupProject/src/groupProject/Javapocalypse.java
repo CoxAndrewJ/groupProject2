@@ -72,13 +72,6 @@ public class Javapocalypse implements ActionListener{
 		
 		Dice die = new Dice();
 		
-		//This is temp code to show a player made
-		System.out.println(player1.getHealth());
-		System.out.println(player1.getName());
-		System.out.println(player1.getLocation());
-		System.out.println(player1.getWeapon());
-		System.out.println(player1.getImage().toString());
-		
 	}
 	
 	public static Player getPlayer1() {

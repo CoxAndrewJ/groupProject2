@@ -1,13 +1,13 @@
 package groupProject;
 
-import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
-import java.awt.GridLayout;
+import java.awt.BorderLayout;
 
-public class Tile extends JLayeredPane {
+@SuppressWarnings("serial")
+public class Tile extends JPanel {
 
 	private boolean hasPlayer1 = false;
 	private boolean hasPlayer2 = false;
@@ -24,24 +24,61 @@ public class Tile extends JLayeredPane {
 	private boolean hasSouthWall = false;
 	private boolean hasNorthWall = false;
 	
-	private ImageIcon background;
+	private boolean hasObjective = false;
+	
+	private ImageIcon player1;
+	private ImageIcon player2;
+	private ImageIcon zombie;
+	
+	JPanel leftPanel;
+	JPanel rightPanel;
+	JPanel bottomPanel;
+	JPanel topPanel;
 	
 	public Tile() {
-		setLayout(new GridLayout(2, 2, 0, 0));
+		setLayout(new BorderLayout(0, 0));
 		
-		JPanel topLeftPanel = new JPanel();		
-		JPanel topRightPanel = new JPanel();
-		JPanel bottomLeftPanel = new JPanel();
-		JPanel bottomRightPanel = new JPanel();
+		JPanel leftPanel = new JPanel();		
+		JPanel rightPanel = new JPanel();
+		JPanel bottomPanel = new JPanel();
+		JPanel topPanel = new JPanel();
 		
-		add(topLeftPanel);
-		add(topRightPanel);
-		add(bottomLeftPanel);
-		add(bottomRightPanel);
-
+		JPanel centralPanel = new JPanel();
+		
+		add(leftPanel, BorderLayout.WEST);
+		add(rightPanel, BorderLayout.EAST);
+		add(bottomPanel, BorderLayout.SOUTH);
+		add(topPanel, BorderLayout.NORTH);
+		add(centralPanel, BorderLayout.CENTER);
+		
+		JLabel player1Panel = new JLabel();
+		
+		centralPanel.add(player1Panel);
+		
+		JPanel player2Panel = new JPanel();
+		centralPanel.add(player2Panel);
+		
+		JPanel zombie1Panel = new JPanel();
+		centralPanel.add(zombie1Panel);
+		
+		JPanel zombie2Panel = new JPanel();
+		centralPanel.add(zombie2Panel);
+		
 	}
 
-	public boolean isHasPlayer1() {
+	
+	
+	
+	
+	public void setPlayer1(ImageIcon player1) {
+		this.player1 = player1;
+	}
+	
+	public void setPlayer2(ImageIcon player2) {
+		this.player2 = player2;
+	}
+	
+	public boolean hasPlayer1() {
 		return hasPlayer1;
 	}
 
@@ -49,7 +86,7 @@ public class Tile extends JLayeredPane {
 		this.hasPlayer1 = hasPlayer1;
 	}
 
-	public boolean isHasPlayer2() {
+	public boolean hasPlayer2() {
 		return hasPlayer2;
 	}
 
@@ -57,7 +94,7 @@ public class Tile extends JLayeredPane {
 		this.hasPlayer2 = hasPlayer2;
 	}
 
-	public boolean isHasZombie1() {
+	public boolean hasZombie1() {
 		return hasZombie1;
 	}
 
@@ -65,7 +102,7 @@ public class Tile extends JLayeredPane {
 		this.hasZombie1 = hasZombie1;
 	}
 
-	public boolean isHasZombie2() {
+	public boolean hasZombie2() {
 		return hasZombie2;
 	}
 
@@ -73,7 +110,7 @@ public class Tile extends JLayeredPane {
 		this.hasZombie2 = hasZombie2;
 	}
 
-	public boolean isHasWestDoor() {
+	public boolean hasWestDoor() {
 		return hasWestDoor;
 	}
 
@@ -81,7 +118,7 @@ public class Tile extends JLayeredPane {
 		this.hasWestDoor = hasWestDoor;
 	}
 
-	public boolean isHasEastDoor() {
+	public boolean hasEastDoor() {
 		return hasEastDoor;
 	}
 
@@ -89,7 +126,7 @@ public class Tile extends JLayeredPane {
 		this.hasEastDoor = hasEastDoor;
 	}
 
-	public boolean isHasSouthDoor() {
+	public boolean hasSouthDoor() {
 		return hasSouthDoor;
 	}
 
@@ -97,7 +134,7 @@ public class Tile extends JLayeredPane {
 		this.hasSouthDoor = hasSouthDoor;
 	}
 
-	public boolean isHasNorthDoor() {
+	public boolean hasNorthDoor() {
 		return hasNorthDoor;
 	}
 
@@ -105,7 +142,7 @@ public class Tile extends JLayeredPane {
 		this.hasNorthDoor = hasNorthDoor;
 	}
 
-	public boolean isHasWestWall() {
+	public boolean hasWestWall() {
 		return hasWestWall;
 	}
 
@@ -113,7 +150,7 @@ public class Tile extends JLayeredPane {
 		this.hasWestWall = hasWestWall;
 	}
 
-	public boolean isHasEastWall() {
+	public boolean hasEastWall() {
 		return hasEastWall;
 	}
 
@@ -121,7 +158,7 @@ public class Tile extends JLayeredPane {
 		this.hasEastWall = hasEastWall;
 	}
 
-	public boolean isHasSouthWall() {
+	public boolean hasSouthWall() {
 		return hasSouthWall;
 	}
 
@@ -129,11 +166,19 @@ public class Tile extends JLayeredPane {
 		this.hasSouthWall = hasSouthWall;
 	}
 
-	public boolean isHasNorthWall() {
+	public boolean hasNorthWall() {
 		return hasNorthWall;
 	}
 
 	public void setHasNorthWall(boolean hasNorthWall) {
 		this.hasNorthWall = hasNorthWall;
+	}
+	
+	public boolean hasObjective() {
+		return hasObjective;
+	}
+	
+	public void setHasObjective(boolean hasObjective) {
+		this.hasObjective = hasObjective;
 	}
 }
