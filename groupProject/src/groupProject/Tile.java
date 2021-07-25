@@ -5,12 +5,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
-import javax.swing.BoxLayout;
 
 @SuppressWarnings("serial")
 public class Tile extends JPanel {
 
+	private int location;//This is used to set the location of the particular tile
+	
 	private boolean hasPlayer1 = false;
 	private boolean hasPlayer2 = false;
 	private boolean hasZombie1 = false;
@@ -32,26 +34,28 @@ public class Tile extends JPanel {
 	private ImageIcon player2icon;
 	private ImageIcon zombieIcon = new ImageIcon(Tile.class.getResource("/resources/zombie1.png"));
 	
-	JPanel leftPanel;
-	JPanel rightPanel;
-	JPanel bottomPanel;
-	JPanel topPanel;
+	JPanel westPanel;
+	JPanel eastPanel;
+	JPanel southPanel;
+	JPanel northPanel;
+	JPanel centralPanel;
 	
 	public Tile() {
 		setLayout(new BorderLayout(0, 0));
-		setSize(100, 100);
+		setSize(50, 50);
+		setBackground(Color.WHITE);
 		
-		JPanel leftPanel = new JPanel();		
-		JPanel rightPanel = new JPanel();
-		JPanel bottomPanel = new JPanel();
-		JPanel topPanel = new JPanel();
+		westPanel = new JPanel();		
+		eastPanel = new JPanel();
+		southPanel = new JPanel();
+		northPanel = new JPanel();
 		
-		JPanel centralPanel = createCentralPanel();
+		centralPanel = createCentralPanel();
 		
-		add(leftPanel, BorderLayout.WEST);
-		add(rightPanel, BorderLayout.EAST);
-		add(bottomPanel, BorderLayout.SOUTH);
-		add(topPanel, BorderLayout.NORTH);
+		add(westPanel, BorderLayout.WEST);
+		add(eastPanel, BorderLayout.EAST);
+		add(southPanel, BorderLayout.SOUTH);
+		add(northPanel, BorderLayout.NORTH);
 		add(centralPanel, BorderLayout.CENTER);
 	
 	}
@@ -82,13 +86,23 @@ public class Tile extends JPanel {
 	
 	
 	
-	
+	/////Used to set images of the 2 players/////
 	public void setPlayer1(ImageIcon player1icon) {
 		this.player1icon = player1icon;
 	}
 	
 	public void setPlayer2(ImageIcon player2icon) {
 		this.player2icon = player2icon;
+	}
+	/////***********************************/////
+	
+	
+	public int getTileLocation() {
+		return location;
+	}
+	
+	public void setTileLocation(int location) {
+		this.location = location;
 	}
 	
 	public boolean hasPlayer1() {

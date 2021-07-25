@@ -75,9 +75,10 @@ public class GameBoard implements ActionListener
 		gameBoard.setPreferredSize(new Dimension(50, 50));
 		contentPane.add(gameBoard, BorderLayout.CENTER);
 		gameBoard.setLayout(new GridLayout(5, 5));
-
+		gameBoard.add(buttonsBoard());
+		
 		// Creates 25 buttons for the game board
-		buttonBoard(gameBoard);
+	//	buttonBoard(gameBoard);
 
 		// Create a new panel to be on the East side, and hold two more panels--
 		// resultsPanel & gameInteractionPanel
@@ -95,10 +96,6 @@ public class GameBoard implements ActionListener
 		}
 	}
 
-	
-	private void buttonsBoard() {
-		
-	}
 	
 	private void buttonBoard(JPanel gameBoard)
 	{
@@ -290,5 +287,346 @@ public class GameBoard implements ActionListener
 		catch(FileNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	
+	/**
+	 * This is used to create all the buttons on the gameBoard
+	 * The reason this method is so huge is because we need to set every tile to its own unique properties.
+	 * 
+	 * @return
+	 */
+	private JPanel buttonsBoard() {
+		JPanel buttonsBoard = new JPanel();
+		
+		Tile tile1 = new Tile();
+			tile1.setTileLocation(1);
+				tile1.northPanel.setBackground(Color.BLACK);
+				tile1.setHasNorthWall(true);			
+				tile1.westPanel.setBackground(Color.BLACK);
+				tile1.setHasWestWall(true);
+				tile1.eastPanel.setBackground(Color.BLACK);
+				tile1.setHasEastWall(true);
+				tile1.southPanel.setBackground(Color.DARK_GRAY);
+				tile1.setHasSouthWall(false);
+				tile1.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile1);
+			
+		Tile tile2 = new Tile();
+			tile2.setTileLocation(2);
+				tile2.northPanel.setBackground(Color.BLACK);
+				tile2.setHasNorthWall(true);			
+				tile2.westPanel.setBackground(Color.BLACK);
+				tile2.setHasWestWall(true);
+				tile2.eastPanel.setBackground(Color.BLACK);
+				tile2.setHasEastWall(true);
+				tile2.southPanel.setBackground(Color.DARK_GRAY);
+				tile2.setHasSouthWall(false);
+				tile2.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile2);
+			
+		Tile tile3 = new Tile();
+			tile3.setTileLocation(3);
+				tile3.northPanel.setBackground(Color.BLACK);
+				tile3.setHasNorthWall(true);			
+				tile3.westPanel.setBackground(Color.BLACK);
+				tile3.setHasWestWall(true);
+				tile3.eastPanel.setBackground(Color.BLACK);
+				tile3.setHasEastWall(true);
+				tile3.southPanel.setBackground(Color.DARK_GRAY);
+				tile3.setHasSouthWall(false);
+				tile3.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile3);
+
+		Tile tile4 = new Tile();
+			tile4.setTileLocation(4);
+				tile4.northPanel.setBackground(Color.BLACK);
+				tile4.setHasNorthWall(true);			
+				tile4.westPanel.setBackground(Color.BLACK);
+				tile4.setHasWestWall(true);
+				tile4.eastPanel.setBackground(Color.BLACK);
+				tile4.setHasEastWall(true);
+				tile4.southPanel.setBackground(Color.DARK_GRAY);
+				tile4.setHasSouthWall(false);
+				tile4.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile4);
+
+		Tile tile5 = new Tile();
+			tile5.setTileLocation(5);
+				tile5.northPanel.setBackground(Color.BLACK);
+				tile5.setHasNorthWall(true);			
+				tile5.westPanel.setBackground(Color.BLACK);
+				tile5.setHasWestWall(true);
+				tile5.eastPanel.setBackground(Color.BLACK);
+				tile5.setHasEastWall(true);
+				tile5.southPanel.setBackground(Color.DARK_GRAY);
+				tile5.setHasSouthWall(false);
+				tile5.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile5);
+			
+		Tile tile6 = new Tile();
+			tile6.setTileLocation(6);
+				tile6.northPanel.setBackground(Color.BLACK);
+				tile6.setHasNorthWall(true);			
+				tile6.westPanel.setBackground(Color.BLACK);
+				tile6.setHasWestWall(true);
+				tile6.eastPanel.setBackground(Color.BLACK);
+				tile6.setHasEastWall(true);
+				tile6.southPanel.setBackground(Color.DARK_GRAY);
+				tile6.setHasSouthWall(false);
+				tile6.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile6);
+			
+		Tile tile7 = new Tile();
+			tile7.setTileLocation(7);
+				tile7.northPanel.setBackground(Color.BLACK);
+				tile7.setHasNorthWall(true);			
+				tile7.westPanel.setBackground(Color.BLACK);
+				tile7.setHasWestWall(true);
+				tile7.eastPanel.setBackground(Color.BLACK);
+				tile7.setHasEastWall(true);
+				tile7.southPanel.setBackground(Color.DARK_GRAY);
+				tile7.setHasSouthWall(false);
+				tile7.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile7);
+			
+		Tile tile8 = new Tile();
+			tile8.setTileLocation(8);
+				tile8.northPanel.setBackground(Color.BLACK);
+				tile8.setHasNorthWall(true);			
+				tile8.westPanel.setBackground(Color.BLACK);
+				tile8.setHasWestWall(true);
+				tile8.eastPanel.setBackground(Color.BLACK);
+				tile8.setHasEastWall(true);
+				tile8.southPanel.setBackground(Color.DARK_GRAY);
+				tile8.setHasSouthWall(false);
+				tile8.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile8);
+			
+		Tile tile9 = new Tile();
+			tile9.setTileLocation(9);
+				tile9.northPanel.setBackground(Color.BLACK);
+				tile9.setHasNorthWall(true);			
+				tile9.westPanel.setBackground(Color.BLACK);
+				tile9.setHasWestWall(true);
+				tile9.eastPanel.setBackground(Color.BLACK);
+				tile9.setHasEastWall(true);
+				tile9.southPanel.setBackground(Color.DARK_GRAY);
+				tile9.setHasSouthWall(false);
+				tile9.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile9);
+			
+		Tile tile10 = new Tile();
+			tile10.setTileLocation(10);
+				tile10.northPanel.setBackground(Color.BLACK);
+				tile10.setHasNorthWall(true);			
+				tile10.westPanel.setBackground(Color.BLACK);
+				tile10.setHasWestWall(true);
+				tile10.eastPanel.setBackground(Color.BLACK);
+				tile10.setHasEastWall(true);
+				tile10.southPanel.setBackground(Color.DARK_GRAY);
+				tile10.setHasSouthWall(false);
+				tile10.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile10);
+			
+		Tile tile11 = new Tile();
+			tile11.setTileLocation(11);
+				tile11.northPanel.setBackground(Color.BLACK);
+				tile11.setHasNorthWall(true);			
+				tile11.westPanel.setBackground(Color.BLACK);
+				tile11.setHasWestWall(true);
+				tile11.eastPanel.setBackground(Color.BLACK);
+				tile11.setHasEastWall(true);
+				tile11.southPanel.setBackground(Color.DARK_GRAY);
+				tile11.setHasSouthWall(false);
+				tile11.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile11);
+			
+		Tile tile12 = new Tile();
+			tile12.setTileLocation(12);
+				tile12.northPanel.setBackground(Color.BLACK);
+				tile12.setHasNorthWall(true);			
+				tile12.westPanel.setBackground(Color.BLACK);
+				tile12.setHasWestWall(true);
+				tile12.eastPanel.setBackground(Color.BLACK);
+				tile12.setHasEastWall(true);
+				tile12.southPanel.setBackground(Color.DARK_GRAY);
+				tile12.setHasSouthWall(false);
+				tile12.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile12);
+			
+		Tile tile13 = new Tile();
+			tile13.setTileLocation(13);
+				tile13.northPanel.setBackground(Color.BLACK);
+				tile13.setHasNorthWall(true);			
+				tile13.westPanel.setBackground(Color.BLACK);
+				tile13.setHasWestWall(true);
+				tile13.eastPanel.setBackground(Color.BLACK);
+				tile13.setHasEastWall(true);
+				tile13.southPanel.setBackground(Color.DARK_GRAY);
+				tile13.setHasSouthWall(false);
+				tile13.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile13);
+			
+		Tile tile14 = new Tile();
+			tile14.setTileLocation(14);
+				tile14.northPanel.setBackground(Color.BLACK);
+				tile14.setHasNorthWall(true);			
+				tile14.westPanel.setBackground(Color.BLACK);
+				tile14.setHasWestWall(true);
+				tile14.eastPanel.setBackground(Color.BLACK);
+				tile14.setHasEastWall(true);
+				tile14.southPanel.setBackground(Color.DARK_GRAY);
+				tile14.setHasSouthWall(false);
+				tile14.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile14);
+			
+		Tile tile15 = new Tile();
+			tile15.setTileLocation(15);
+				tile15.northPanel.setBackground(Color.BLACK);
+				tile15.setHasNorthWall(true);			
+				tile15.westPanel.setBackground(Color.BLACK);
+				tile15.setHasWestWall(true);
+				tile15.eastPanel.setBackground(Color.BLACK);
+				tile15.setHasEastWall(true);
+				tile15.southPanel.setBackground(Color.DARK_GRAY);
+				tile15.setHasSouthWall(false);
+				tile15.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile15);
+			
+		Tile tile16 = new Tile();
+			tile16.setTileLocation(16);
+				tile16.northPanel.setBackground(Color.BLACK);
+				tile16.setHasNorthWall(true);			
+				tile16.westPanel.setBackground(Color.BLACK);
+				tile16.setHasWestWall(true);
+				tile16.eastPanel.setBackground(Color.BLACK);
+				tile16.setHasEastWall(true);
+				tile16.southPanel.setBackground(Color.DARK_GRAY);
+				tile16.setHasSouthWall(false);
+				tile16.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile16);
+			
+		Tile tile17 = new Tile();
+			tile2.setTileLocation(17);
+				tile17.northPanel.setBackground(Color.BLACK);
+				tile17.setHasNorthWall(true);			
+				tile17.westPanel.setBackground(Color.BLACK);
+				tile17.setHasWestWall(true);
+				tile17.eastPanel.setBackground(Color.BLACK);
+				tile17.setHasEastWall(true);
+				tile17.southPanel.setBackground(Color.DARK_GRAY);
+				tile17.setHasSouthWall(false);
+				tile17.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile17);
+			
+		Tile tile18 = new Tile();
+			tile18.setTileLocation(18);
+				tile18.northPanel.setBackground(Color.BLACK);
+				tile18.setHasNorthWall(true);			
+				tile18.westPanel.setBackground(Color.BLACK);
+				tile18.setHasWestWall(true);
+				tile18.eastPanel.setBackground(Color.BLACK);
+				tile18.setHasEastWall(true);
+				tile18.southPanel.setBackground(Color.DARK_GRAY);
+				tile18.setHasSouthWall(false);
+				tile18.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile18);
+			
+		Tile tile19 = new Tile();
+			tile2.setTileLocation(19);
+				tile2.northPanel.setBackground(Color.BLACK);
+				tile2.setHasNorthWall(true);			
+				tile2.westPanel.setBackground(Color.BLACK);
+				tile2.setHasWestWall(true);
+				tile2.eastPanel.setBackground(Color.BLACK);
+				tile2.setHasEastWall(true);
+				tile2.southPanel.setBackground(Color.DARK_GRAY);
+				tile2.setHasSouthWall(false);
+				tile2.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile2);
+			
+		Tile tile20 = new Tile();
+			tile2.setTileLocation(20);
+				tile2.northPanel.setBackground(Color.BLACK);
+				tile2.setHasNorthWall(true);			
+				tile2.westPanel.setBackground(Color.BLACK);
+				tile2.setHasWestWall(true);
+				tile2.eastPanel.setBackground(Color.BLACK);
+				tile2.setHasEastWall(true);
+				tile2.southPanel.setBackground(Color.DARK_GRAY);
+				tile2.setHasSouthWall(false);
+				tile2.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile2);
+			
+		Tile tile21 = new Tile();
+			tile2.setTileLocation(21);
+				tile2.northPanel.setBackground(Color.BLACK);
+				tile2.setHasNorthWall(true);			
+				tile2.westPanel.setBackground(Color.BLACK);
+				tile2.setHasWestWall(true);
+				tile2.eastPanel.setBackground(Color.BLACK);
+				tile2.setHasEastWall(true);
+				tile2.southPanel.setBackground(Color.DARK_GRAY);
+				tile2.setHasSouthWall(false);
+				tile2.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile2);
+			
+		Tile tile22 = new Tile();
+			tile2.setTileLocation(22);
+				tile2.northPanel.setBackground(Color.BLACK);
+				tile2.setHasNorthWall(true);			
+				tile2.westPanel.setBackground(Color.BLACK);
+				tile2.setHasWestWall(true);
+				tile2.eastPanel.setBackground(Color.BLACK);
+				tile2.setHasEastWall(true);
+				tile2.southPanel.setBackground(Color.DARK_GRAY);
+				tile2.setHasSouthWall(false);
+				tile2.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile2);
+			
+		Tile tile23 = new Tile();
+			tile2.setTileLocation(23);
+				tile2.northPanel.setBackground(Color.BLACK);
+				tile2.setHasNorthWall(true);			
+				tile2.westPanel.setBackground(Color.BLACK);
+				tile2.setHasWestWall(true);
+				tile2.eastPanel.setBackground(Color.BLACK);
+				tile2.setHasEastWall(true);
+				tile2.southPanel.setBackground(Color.DARK_GRAY);
+				tile2.setHasSouthWall(false);
+				tile2.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile2);
+			
+		Tile tile24 = new Tile();
+			tile2.setTileLocation(24);
+				tile2.northPanel.setBackground(Color.BLACK);
+				tile2.setHasNorthWall(true);			
+				tile2.westPanel.setBackground(Color.BLACK);
+				tile2.setHasWestWall(true);
+				tile2.eastPanel.setBackground(Color.BLACK);
+				tile2.setHasEastWall(true);
+				tile2.southPanel.setBackground(Color.DARK_GRAY);
+				tile2.setHasSouthWall(false);
+				tile2.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile2);
+			
+		Tile tile25 = new Tile();
+			tile2.setTileLocation(25);
+				tile2.northPanel.setBackground(Color.BLACK);
+				tile2.setHasNorthWall(true);			
+				tile2.westPanel.setBackground(Color.BLACK);
+				tile2.setHasWestWall(true);
+				tile2.eastPanel.setBackground(Color.BLACK);
+				tile2.setHasEastWall(true);
+				tile2.southPanel.setBackground(Color.DARK_GRAY);
+				tile2.setHasSouthWall(false);
+				tile2.centralPanel.setBackground(Color.DARK_GRAY);
+			buttonsBoard.add(tile2);
+			
+			
+			
+		return buttonsBoard;
 	}
 }
