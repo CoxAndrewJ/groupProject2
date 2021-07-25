@@ -2,7 +2,6 @@ package groupProject;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -31,14 +30,18 @@ public class GameBoard implements ActionListener
 	private JPanel contentPane;
 	private JMenu file;
 
+	private JPanel gameInteractionPanel;
+	private JPanel directionPanel;
+	
 	public List<Integer> buildingSquares = new ArrayList<>();
+
 
 	/**
 	 * TODO Create the main frame of the item We will add 2 panels: the gameBoard
 	 * panel on west and the sidePanel on east We then add two more panels to the
 	 * east panel
 	 * 
-	 * @author Andrew
+	 * @author Cody, Hayden
 	 */
 
 	public GameBoard()
@@ -72,11 +75,9 @@ public class GameBoard implements ActionListener
 		contentPane.setLayout(new BorderLayout(0, 0));
 
 		// Create the game Panel
-		JPanel gameBoard = new JPanel();
-		gameBoard.setPreferredSize(new Dimension(50, 50));
+		JPanel gameBoard = buttonsBoard();
 		contentPane.add(gameBoard, BorderLayout.CENTER);
-		gameBoard.setLayout(new BoxLayout(gameBoard, BoxLayout.X_AXIS));
-		gameBoard.add(buttonsBoard());
+
 		
 		// Creates 25 buttons for the game board
 	//	buttonBoard(gameBoard);
@@ -187,10 +188,12 @@ public class GameBoard implements ActionListener
 		JPanel resultsPanel = createResultsPanel();
 		sidePanel.add(resultsPanel);
 
-		// Add the gameInteractionPanel to the sidePanel
-		// will go on the lower side
-		JPanel gameInteractionPanel = createGameInteractionPanel();
+		gameInteractionPanel = createGameInteractionPanel();
 		sidePanel.add(gameInteractionPanel);
+		
+		directionPanel = createDirectionPanel();
+		directionPanel.setVisible(false);
+		sidePanel.add(directionPanel);
 
 		return sidePanel;
 
@@ -227,6 +230,39 @@ public class GameBoard implements ActionListener
 		return gameInteractionPanel;
 	}
 
+	
+	private JPanel createDirectionPanel() {
+		JPanel directionPanel = new JPanel();
+		directionPanel.setBackground(Color.GRAY);
+		directionPanel.setLayout(new GridLayout(0,3,10,10));
+		
+		JButton backBtn = new JButton("Back");
+		backBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		
+		JButton upBtn = new JButton("^");
+		upBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		
+		JLabel blankLbl = new JLabel();
+		
+		JButton leftBtn = new JButton("<");
+		leftBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		
+		JButton downBtn = new JButton("v");
+		downBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		
+		JButton rightBtn = new JButton(">");
+		rightBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		
+		directionPanel.add(backBtn);
+		directionPanel.add(upBtn);
+		directionPanel.add(blankLbl);
+		
+		directionPanel.add(leftBtn);
+		directionPanel.add(downBtn);
+		directionPanel.add(rightBtn);
+		
+		return directionPanel;
+	}
 
 	private JPanel createResultsPanel()
 	{
@@ -305,8 +341,7 @@ public class GameBoard implements ActionListener
 	private JPanel buttonsBoard() {
 		JPanel buttonsBoard = new JPanel();
 		buttonsBoard.setLayout(new GridLayout(5,5,0,0));
-		//buttonsBoard.setBounds(0,0,800,800);
-		
+
 		Tile tile1 = new Tile();
 			tile1.setTileLocation(1);
 				tile1.northPanel.setBackground(Color.BLACK);
@@ -374,6 +409,8 @@ public class GameBoard implements ActionListener
 				tile5.southPanel.setBackground(Color.BLACK);
 				tile5.setHasSouthWall(true);
 				tile5.centralPanel.setBackground(Color.RED);
+				
+				tile5.setHasObjective(true);
 			buttonsBoard.add(tile5);
 			
 		Tile tile6 = new Tile();
@@ -606,6 +643,7 @@ public class GameBoard implements ActionListener
 				tile21.setHasSouthWall(true);
 				tile21.centralPanel.setBackground(Color.RED);
 				
+				tile21.setHasObjective(true);
 				tile21.northPanel.setVisible(false);
 			buttonsBoard.add(tile21);
 			
@@ -649,6 +687,7 @@ public class GameBoard implements ActionListener
 				tile24.setHasSouthWall(true);
 				tile24.centralPanel.setBackground(Color.RED);
 				
+				tile24.setHasObjective(true);
 				tile24.northPanel.setVisible(false);
 			buttonsBoard.add(tile24);
 			
@@ -664,9 +703,7 @@ public class GameBoard implements ActionListener
 				tile25.setHasSouthWall(true);
 				tile25.centralPanel.setBackground(Color.LIGHT_GRAY);
 			buttonsBoard.add(tile25);
-			
-			
-			
+
 		return buttonsBoard;
 	}
 }
