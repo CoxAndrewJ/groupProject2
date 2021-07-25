@@ -318,6 +318,8 @@ public class GameBoard implements ActionListener
 				tile1.southPanel.setBackground(Color.DARK_GRAY);
 				tile1.setHasSouthWall(false);
 				tile1.centralPanel.setBackground(Color.DARK_GRAY);
+				
+				tile1.southPanel.setVisible(false);
 			buttonsBoard.add(tile1);
 			
 		Tile tile2 = new Tile();
@@ -385,6 +387,8 @@ public class GameBoard implements ActionListener
 				tile6.southPanel.setBackground(Color.BLACK);
 				tile6.setHasSouthWall(true);
 				tile6.centralPanel.setBackground(Color.DARK_GRAY);
+				
+				tile6.northPanel.setVisible(false);
 			buttonsBoard.add(tile6);
 			
 		Tile tile7 = new Tile();
@@ -482,6 +486,8 @@ public class GameBoard implements ActionListener
 				tile13.southPanel.setBackground(Color.DARK_GRAY);
 				tile13.setHasSouthWall(false);
 				tile13.centralPanel.setBackground(Color.DARK_GRAY);
+				
+				tile13.southPanel.setVisible(false);
 			buttonsBoard.add(tile13);
 			
 		Tile tile14 = new Tile();
@@ -495,6 +501,8 @@ public class GameBoard implements ActionListener
 				tile14.southPanel.setBackground(Color.DARK_GRAY);
 				tile14.setHasSouthWall(false);
 				tile14.centralPanel.setBackground(Color.DARK_GRAY);
+				
+				tile14.southPanel.setVisible(false);
 			buttonsBoard.add(tile14);
 			
 		Tile tile15 = new Tile();
@@ -523,6 +531,7 @@ public class GameBoard implements ActionListener
 				tile16.centralPanel.setBackground(Color.DARK_GRAY);
 				
 				tile16.setHasEastDoor(true);
+				tile16.southPanel.setVisible(false);
 			buttonsBoard.add(tile16);
 			
 		Tile tile17 = new Tile();
@@ -537,7 +546,7 @@ public class GameBoard implements ActionListener
 				tile17.setHasSouthWall(false);
 				tile17.centralPanel.setBackground(Color.LIGHT_GRAY);
 				
-				tile17.setHasWestDoor(true);
+				tile17.setHasWestDoor(true);	
 			buttonsBoard.add(tile17);
 			
 		Tile tile18 = new Tile();
@@ -551,6 +560,9 @@ public class GameBoard implements ActionListener
 				tile18.southPanel.setBackground(Color.DARK_GRAY);
 				tile18.setHasSouthWall(false);
 				tile18.centralPanel.setBackground(Color.DARK_GRAY);
+				
+				tile18.northPanel.setVisible(false);
+				tile18.southPanel.setVisible(false);
 			buttonsBoard.add(tile18);
 			
 		Tile tile19 = new Tile();
@@ -564,6 +576,9 @@ public class GameBoard implements ActionListener
 				tile19.southPanel.setBackground(Color.DARK_GRAY);
 				tile19.setHasSouthWall(false);
 				tile19.centralPanel.setBackground(Color.DARK_GRAY);
+			
+				tile19.northPanel.setVisible(false);
+				tile19.southPanel.setVisible(false);
 			buttonsBoard.add(tile19);
 			
 		Tile tile20 = new Tile();
@@ -590,6 +605,8 @@ public class GameBoard implements ActionListener
 				tile21.southPanel.setBackground(Color.BLACK);
 				tile21.setHasSouthWall(true);
 				tile21.centralPanel.setBackground(Color.RED);
+				
+				tile21.northPanel.setVisible(false);
 			buttonsBoard.add(tile21);
 			
 		Tile tile22 = new Tile();
@@ -616,6 +633,8 @@ public class GameBoard implements ActionListener
 				tile23.southPanel.setBackground(Color.BLACK);
 				tile23.setHasSouthWall(true);
 				tile23.centralPanel.setBackground(Color.DARK_GRAY);
+				
+				tile23.northPanel.setVisible(false);
 			buttonsBoard.add(tile23);
 			
 		Tile tile24 = new Tile();
@@ -629,6 +648,8 @@ public class GameBoard implements ActionListener
 				tile24.southPanel.setBackground(Color.BLACK);
 				tile24.setHasSouthWall(true);
 				tile24.centralPanel.setBackground(Color.RED);
+				
+				tile24.northPanel.setVisible(false);
 			buttonsBoard.add(tile24);
 			
 		Tile tile25 = new Tile();

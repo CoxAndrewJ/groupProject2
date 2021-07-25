@@ -43,8 +43,6 @@ public class Tile extends JPanel {
 	public Tile() {
 		setLayout(new BorderLayout(0, 0));
 		setBounds(0,0,50,50);
-		//setSize(100, 100);
-		setBackground(Color.WHITE);
 		
 		westPanel = new JPanel();		
 		eastPanel = new JPanel();
@@ -75,10 +73,12 @@ public class Tile extends JPanel {
 		
 		JLabel zombie1Label = new JLabel();
 		zombie1Label.setIcon(zombieIcon);
+		zombie1Label.setVisible(false);
 		centralPanel.add(zombie1Label);
 		
 		JLabel zombie2Label = new JLabel();
 		zombie2Label.setIcon(zombieIcon);
+		zombie2Label.setVisible(false);
 		centralPanel.add(zombie2Label);
 		
 		return centralPanel;
