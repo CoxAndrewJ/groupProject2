@@ -42,7 +42,8 @@ public class Tile extends JPanel {
 	
 	public Tile() {
 		setLayout(new BorderLayout(0, 0));
-		setSize(50, 50);
+		setBounds(0,0,50,50);
+		//setSize(100, 100);
 		setBackground(Color.WHITE);
 		
 		westPanel = new JPanel();		
