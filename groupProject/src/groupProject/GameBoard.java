@@ -49,7 +49,8 @@ public class GameBoard implements ActionListener
 		mainFrame.setVisible(true);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setBounds(100, 100, 1500, 800);
-		// this creates teh menu bar so that we can have a save option
+		
+		// this creates the menu bar so that we can have a save option
 		JMenuBar mb = new JMenuBar();
 		file = new JMenu("File");
 		mb.add(file);
@@ -64,8 +65,6 @@ public class GameBoard implements ActionListener
 		mainFrame.setVisible(true);   
 		
 		
-		
-
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		mainFrame.setContentPane(contentPane);
@@ -77,7 +76,7 @@ public class GameBoard implements ActionListener
 		contentPane.add(gameBoard, BorderLayout.CENTER);
 		gameBoard.setLayout(new GridLayout(5, 5));
 
-		// Creates 100 buttons for the game board
+		// Creates 25 buttons for the game board
 		buttonBoard(gameBoard);
 
 		// Create a new panel to be on the East side, and hold two more panels--
@@ -89,7 +88,6 @@ public class GameBoard implements ActionListener
 	
 	/**
 	 * event is in order to save from the menu bar. 
-	 * I am not sure why it is not recognizing those two variables but will figure it out later
 	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == file) {
@@ -97,6 +95,10 @@ public class GameBoard implements ActionListener
 		}
 	}
 
+	
+	private void buttonsBoard() {
+		
+	}
 	
 	private void buttonBoard(JPanel gameBoard)
 	{

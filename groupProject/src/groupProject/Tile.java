@@ -5,6 +5,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import javax.swing.BoxLayout;
 
 @SuppressWarnings("serial")
 public class Tile extends JPanel {
@@ -26,9 +28,9 @@ public class Tile extends JPanel {
 	
 	private boolean hasObjective = false;
 	
-	private ImageIcon player1;
-	private ImageIcon player2;
-	private ImageIcon zombie;
+	private ImageIcon player1icon;
+	private ImageIcon player2icon;
+	private ImageIcon zombieIcon = new ImageIcon(Tile.class.getResource("/resources/zombie1.png"));
 	
 	JPanel leftPanel;
 	JPanel rightPanel;
@@ -37,45 +39,56 @@ public class Tile extends JPanel {
 	
 	public Tile() {
 		setLayout(new BorderLayout(0, 0));
+		setSize(100, 100);
 		
 		JPanel leftPanel = new JPanel();		
 		JPanel rightPanel = new JPanel();
 		JPanel bottomPanel = new JPanel();
 		JPanel topPanel = new JPanel();
 		
-		JPanel centralPanel = new JPanel();
+		JPanel centralPanel = createCentralPanel();
 		
 		add(leftPanel, BorderLayout.WEST);
 		add(rightPanel, BorderLayout.EAST);
 		add(bottomPanel, BorderLayout.SOUTH);
 		add(topPanel, BorderLayout.NORTH);
 		add(centralPanel, BorderLayout.CENTER);
+	
+	}
+
+	private JPanel createCentralPanel() {
+		JPanel centralPanel = new JPanel();
+		centralPanel.setLayout(new GridLayout(2, 2, 0, 0));
 		
-		JLabel player1Panel = new JLabel();
+		JLabel player1Label = new JLabel();
+		player1Label.setIcon(player1icon);
+		centralPanel.add(player1Label);
 		
-		centralPanel.add(player1Panel);
+		JLabel player2Label = new JLabel();
+		player2Label.setIcon(player2icon);
+		centralPanel.add(player2Label);
 		
-		JPanel player2Panel = new JPanel();
-		centralPanel.add(player2Panel);
+		JLabel zombie1Label = new JLabel();
+		zombie1Label.setIcon(zombieIcon);
+		centralPanel.add(zombie1Label);
 		
-		JPanel zombie1Panel = new JPanel();
-		centralPanel.add(zombie1Panel);
+		JLabel zombie2Label = new JLabel();
+		zombie2Label.setIcon(zombieIcon);
+		centralPanel.add(zombie2Label);
 		
-		JPanel zombie2Panel = new JPanel();
-		centralPanel.add(zombie2Panel);
-		
+		return centralPanel;
 	}
 
 	
 	
 	
 	
-	public void setPlayer1(ImageIcon player1) {
-		this.player1 = player1;
+	public void setPlayer1(ImageIcon player1icon) {
+		this.player1icon = player1icon;
 	}
 	
-	public void setPlayer2(ImageIcon player2) {
-		this.player2 = player2;
+	public void setPlayer2(ImageIcon player2icon) {
+		this.player2icon = player2icon;
 	}
 	
 	public boolean hasPlayer1() {
