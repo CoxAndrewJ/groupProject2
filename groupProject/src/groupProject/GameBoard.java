@@ -28,6 +28,7 @@ public class GameBoard implements ActionListener
 {
 
 	private JPanel contentPane;
+	private JMenu file;
 
 	/**
 	 * TODO Create the main frame of the item We will add 2 panels: the gameBoard
@@ -47,7 +48,7 @@ public class GameBoard implements ActionListener
 		mainFrame.setBounds(100, 100, 1500, 800);
 		// this creates teh menu bar so that we can have a save option
 		JMenuBar mb = new JMenuBar();
-		JMenu file = new JMenu("File");
+		file = new JMenu("File");
 		mb.add(file);
 		JMenuItem save = new JMenuItem("Save");
 		file.add(save);
@@ -95,8 +96,8 @@ public class GameBoard implements ActionListener
 	 * I am not sure why it is not recognizing those two variables but will figure it out later
 	 */
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == save) {
-			playerSaveFile(player1, player2);
+		if (e.getSource() == file) {
+			playerSaveFile(Javapocalypse.getPlayer1(), Javapocalypse.getPlayer2());
 		}
 	}
 
@@ -180,11 +181,7 @@ public class GameBoard implements ActionListener
 		return gameInteractionPanel;
 	}
 
-	
-	
-	
-	
-	
+
 	private JPanel createResultsPanel()
 	{
 		JPanel resultsPanel = new JPanel();
