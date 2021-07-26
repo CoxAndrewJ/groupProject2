@@ -24,7 +24,9 @@ public class Javapocalypse implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		gameBoardMain();
+		if(e.getSource()==frame) {
+			gameBoardMain();
+		}
 	}
 	
 	public static Player createPlayer(){
@@ -71,6 +73,10 @@ public class Javapocalypse implements ActionListener{
 		player2 = createPlayer();
 		
 		Dice die = new Dice();
+		
+		player1.setLocation(25);
+		player2.setLocation(25);
+		
 		
 	}
 	

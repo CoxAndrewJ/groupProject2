@@ -33,6 +33,8 @@ public class GameBoard implements ActionListener
 	private JPanel gameInteractionPanel;
 	private JPanel directionPanel;
 	
+	private boolean[] buttonNumberPressed = {false,false,false,false};
+	
 	public List<Integer> buildingSquares = new ArrayList<>();
 
 
@@ -212,6 +214,13 @@ public class GameBoard implements ActionListener
 		gameInteractionPanel.setLayout(new GridLayout(0, 2, 10, 10));
 
 		JButton moveBtn = new JButton("Move");
+		moveBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				buttonNumberPressed[0]=true;
+				gameInteractionPanel.setVisible(false);
+				directionPanel.setVisible(true);
+			}
+		});
 		moveBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
 		gameInteractionPanel.add(moveBtn);
 
