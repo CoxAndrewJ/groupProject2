@@ -30,8 +30,8 @@ public class Tile extends JPanel {
 	
 	private boolean hasObjective = false;
 	
-	private ImageIcon player1icon;
-	private ImageIcon player2icon;
+	private static ImageIcon player1icon;
+	private static  ImageIcon player2icon;
 	private ImageIcon zombieIcon = new ImageIcon(Tile.class.getResource("/resources/zombie1.png"));
 	
 	JPanel westPanel;
@@ -65,10 +65,12 @@ public class Tile extends JPanel {
 		
 		JLabel player1Label = new JLabel();
 		player1Label.setIcon(player1icon);
+		player1Label.setVisible(false);
 		centralPanel.add(player1Label);
 		
 		JLabel player2Label = new JLabel();
 		player2Label.setIcon(player2icon);
+		player2Label.setVisible(false);
 		centralPanel.add(player2Label);
 		
 		JLabel zombie1Label = new JLabel();
@@ -88,12 +90,12 @@ public class Tile extends JPanel {
 	
 	
 	/////Used to set images of the 2 players/////
-	public void setPlayer1(ImageIcon player1icon) {
-		this.player1icon = player1icon;
+	public static void setPlayer1(ImageIcon icon) {
+		player1icon = icon;
 	}
 	
-	public void setPlayer2(ImageIcon player2icon) {
-		this.player2icon = player2icon;
+	public static void setPlayer2(ImageIcon icon) {
+		player2icon = icon;
 	}
 	/////***********************************/////
 	

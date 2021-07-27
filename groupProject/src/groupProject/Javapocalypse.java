@@ -16,6 +16,8 @@ public class Javapocalypse implements ActionListener{
 	private static Player player1;
 	private static Player player2;
 
+	Dice die = new Dice();
+
 	
 	//the following 3 methods are used to dispose of the frame and instantiate the gameboard
 	public static Javapocalypse getInstance() {
@@ -24,9 +26,7 @@ public class Javapocalypse implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource()==frame) {
-			gameBoardMain();
-		}
+		gameBoardMain();
 	}
 	
 	public static Player createPlayer(){
@@ -52,6 +52,10 @@ public class Javapocalypse implements ActionListener{
 		}
 	}
 	
+	
+	
+	
+	
 	/**
 	 * Launch the application.
 	 * Contains the main method, and creates the frame
@@ -66,17 +70,22 @@ public class Javapocalypse implements ActionListener{
 	 * Otherwise, code would run instantaneously
 	 */
 	public static void gameBoardMain() {
-		gameBoard = new GameBoard();
+		//Next 5 lines will create the character images which are added to gameBoard
 		characters = frame.getCharacters();//this tells us which characters are which
-		
 		player1 = createPlayer();
 		player2 = createPlayer();
+		Tile.setPlayer1(player1.getImage());
+		Tile.setPlayer2(player2.getImage());
 		
-		Dice die = new Dice();
-		
+		//Start the players off on space 25
 		player1.setLocation(25);
 		player2.setLocation(25);
 		
+		//Create a new gameBoard using the above code as parameters(in a way)
+		gameBoard = new GameBoard();
+				
+		player1.setLocation(25);
+		player2.setLocation(25);
 		
 	}
 	
@@ -87,4 +96,11 @@ public class Javapocalypse implements ActionListener{
 	public static Player getPlayer2() {
 		return player2;
 	}
+	
+	
+	
+	public void setPlayer2(boolean[] characters) {
+		
+	}
+	
 }
