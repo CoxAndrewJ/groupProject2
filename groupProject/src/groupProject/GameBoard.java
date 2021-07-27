@@ -196,6 +196,12 @@ public class GameBoard implements ActionListener
 		return gameInteractionPanel;
 	}
 
+	/**
+	 * This panel replaces the interaction panel with a panel containing arrow keys
+	 * to allow the player to indicate what direction they will move/open/attack
+	 * 
+	 * @return
+	 */
 	private JPanel createDirectionPanel()
 	{
 		JPanel directionPanel = new JPanel();
@@ -323,6 +329,7 @@ public class GameBoard implements ActionListener
 		}
 	}
 
+//BUNCHA TILES WAHOOOOOO
 	Tile tile0 = new Tile();
 	Tile tile1;
 	Tile tile2;

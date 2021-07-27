@@ -2,6 +2,7 @@ package groupProject;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 
@@ -92,19 +93,65 @@ public class Javapocalypse implements ActionListener
 		// Create a new gameBoard using the above code as parameters(in a way)
 		gameBoard = new GameBoard();
 
-		player1.setLocation(25);
-		player2.setLocation(25);
-
 		startGame();
+
+		// Cycles between player1's turn, player2's turn, and zombie phase as well as if
+		// the game has been won or lost.
+		if (player1.getActions() == 0)
+		{
+			checkEndGame();
+			// TODO player 2's turn
+		}
+		if (player2.getActions() == 0)
+		{
+			// TODO zombies move/attack
+			checkEndGame();
+			zombieSpawn(gameBoard.tile2);
+			zombieSpawn(gameBoard.tile11);
+			zombieSpawn(gameBoard.tile22);
+			player1.resetActions();
+			player2.resetActions();
+		}
+		// TODO if players health is set to 0, set their actions to 0 too
 	}
 
+	/**
+	 * Spawns the indicated number of zombies
+	 * 
+	 * @param tile the tile to spawn the zombies in
+	 */
+	private static void zombieSpawn(Tile tile)
+	{
+		Random rand = new Random();
+		int zNum = rand.nextInt(7);
+		if (zNum > 5)
+		{
+			tile.hasZombie1();
+			tile.hasZombie2();
+
+		} else if (zNum < 3)
+		{
+			return;
+		} else
+		{
+			tile.hasZombie1();
+		}
+	}
+
+	/**
+	 * Starts the game
+	 */
 	public static void startGame()
 	{
 		objectivesObtained = 0;
 		updateBoardLocations();
 	}
 
-	public static void endGame()
+	/**
+	 * Ends the game depending on two states: either both players are dead or all
+	 * objectives are obtained.
+	 */
+	public static void checkEndGame()
 	{
 		if (objectivesObtained == 3)
 		{
@@ -113,10 +160,14 @@ public class Javapocalypse implements ActionListener
 		if (player1.getHealth() == 0 && player2.getHealth() == 0)
 		{
 			// GameOver
-		}
+		} else
+			return;// if players are alive but don't have all objectives, returns nothing.
 
 	}
 
+	/**
+	 * Updates the locations of the players on the board.
+	 */
 	public static void updateBoardLocations()
 	{
 
@@ -153,6 +204,12 @@ public class Javapocalypse implements ActionListener
 
 }
 
+/**
+ * Moves the player up one tile on the game board if allowed.
+ * 
+ * @author Andrew and Cody
+ *
+ */
 class UpBtnListener implements ActionListener
 {
 
@@ -193,6 +250,12 @@ class UpBtnListener implements ActionListener
 	}
 }
 
+/**
+ * Moves the player down one tile on the game board if allowed.
+ * 
+ * @author Andrew and Cody
+ *
+ */
 class DownBtnListener implements ActionListener
 {
 
@@ -233,6 +296,12 @@ class DownBtnListener implements ActionListener
 	}
 }
 
+/**
+ * Moves the player left one tile on the game board if allowed.
+ * 
+ * @author Andrew and Cody
+ *
+ */
 class LeftBtnListener implements ActionListener
 {
 
@@ -273,6 +342,12 @@ class LeftBtnListener implements ActionListener
 	}
 }
 
+/**
+ * Moves the player right one tile on the game board if allowed.
+ * 
+ * @author Andrew and Cody
+ *
+ */
 class RightBtnListener implements ActionListener
 {
 

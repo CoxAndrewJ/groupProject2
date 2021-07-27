@@ -10,6 +10,7 @@ public class Player
 	private Weapon weapon = Weapon.UNARMED;
 	private String name;
 	private ImageIcon image;
+	public int actions;
 
 	public Player(String name, ImageIcon image)
 	{
@@ -81,6 +82,17 @@ public class Player
 	public void setImage(ImageIcon image)
 	{
 		this.image = image;
+	}
+
+	public int getActions()
+	{
+		return actions;
+	}
+
+	public int resetActions()
+	{
+		actions = 3;
+		return actions;
 	}
 
 }
