@@ -11,7 +11,7 @@ import java.awt.GridLayout;
 @SuppressWarnings("serial")
 public class Tile extends JPanel {
 
-	private int location;//This is used to set the location of the particular tile
+	private int location = 1;//This is used to set the location of the particular tile
 	
 	private boolean hasPlayer1 = false;
 	private boolean hasPlayer2 = false;
@@ -40,6 +40,11 @@ public class Tile extends JPanel {
 	JPanel northPanel;
 	JPanel centralPanel;
 	
+	JLabel player1Label;
+	JLabel player2Label;
+	JLabel zombie1Label;
+	JLabel zombie2Label;
+	
 	public Tile() {
 		setLayout(new BorderLayout(0, 0));
 		setBounds(0,0,50,50);
@@ -63,22 +68,22 @@ public class Tile extends JPanel {
 		JPanel centralPanel = new JPanel();
 		centralPanel.setLayout(new GridLayout(2, 2, 0, 0));
 		
-		JLabel player1Label = new JLabel();
+		player1Label = new JLabel();
 		player1Label.setIcon(player1icon);
 		player1Label.setVisible(false);
 		centralPanel.add(player1Label);
 		
-		JLabel player2Label = new JLabel();
+		player2Label = new JLabel();
 		player2Label.setIcon(player2icon);
 		player2Label.setVisible(false);
 		centralPanel.add(player2Label);
 		
-		JLabel zombie1Label = new JLabel();
+		zombie1Label = new JLabel();
 		zombie1Label.setIcon(zombieIcon);
 		zombie1Label.setVisible(false);
 		centralPanel.add(zombie1Label);
 		
-		JLabel zombie2Label = new JLabel();
+		zombie2Label = new JLabel();
 		zombie2Label.setIcon(zombieIcon);
 		zombie2Label.setVisible(false);
 		centralPanel.add(zombie2Label);
@@ -90,11 +95,11 @@ public class Tile extends JPanel {
 	
 	
 	/////Used to set images of the 2 players/////
-	public static void setPlayer1(ImageIcon icon) {
+	public static void setPlayer1Icon(ImageIcon icon) {
 		player1icon = icon;
 	}
 	
-	public static void setPlayer2(ImageIcon icon) {
+	public static void setPlayer2Icon(ImageIcon icon) {
 		player2icon = icon;
 	}
 	/////***********************************/////
@@ -114,6 +119,12 @@ public class Tile extends JPanel {
 
 	public void setHasPlayer1(boolean hasPlayer1) {
 		this.hasPlayer1 = hasPlayer1;
+		if(hasPlayer1 == true) {
+			player1Label.setVisible(true);
+		}
+		if(hasPlayer1 == false) {
+			player1Label.setVisible(false);
+		}
 	}
 
 	public boolean hasPlayer2() {
@@ -121,6 +132,12 @@ public class Tile extends JPanel {
 	}
 
 	public void setHasPlayer2(boolean hasPlayer2) {
+		if(hasPlayer2 == true) {
+			player2Label.setVisible(true);
+		}
+		if(hasPlayer2 == false) {
+			player2Label.setVisible(false);
+		}
 		this.hasPlayer2 = hasPlayer2;
 	}
 

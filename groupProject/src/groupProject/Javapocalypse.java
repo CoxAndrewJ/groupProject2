@@ -26,7 +26,7 @@ public class Javapocalypse implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		gameBoardMain();
+		initializeGameBoard();
 	}
 	
 	public static Player createPlayer(){
@@ -66,16 +66,16 @@ public class Javapocalypse implements ActionListener{
 	
 	
 	/**
-	 * All code in the GameBoardMain method will run only once we have hit the ready button.
+	 * All code in the initializeGameBoard method will run only once we have hit the ready button.
 	 * Otherwise, code would run instantaneously
 	 */
-	public static void gameBoardMain() {
+	public static void initializeGameBoard() {
 		//Next 5 lines will create the character images which are added to gameBoard
 		characters = frame.getCharacters();//this tells us which characters are which
 		player1 = createPlayer();
 		player2 = createPlayer();
-		Tile.setPlayer1(player1.getImage());
-		Tile.setPlayer2(player2.getImage());
+		Tile.setPlayer1Icon(player1.getImage());
+		Tile.setPlayer2Icon(player2.getImage());
 		
 		//Start the players off on space 25
 		player1.setLocation(25);
@@ -85,8 +85,33 @@ public class Javapocalypse implements ActionListener{
 		gameBoard = new GameBoard();
 				
 		player1.setLocation(25);
-		player2.setLocation(25);
+		player2.setLocation(25);	
+	
+		startGame();
+	}
+	
+	public static void startGame() {
+		int objectivesObtained = 0;
+		while(objectivesObtained!=3) {
+			turnStart();
+			
+		}
 		
+	}
+	
+	public static void turnStart() {
+		//for(int i = 1 ; i <= 25 ; i++) {
+			if(gameBoard.tiles[25].
+					getTileLocation()==
+					player1.getLocation()) {
+				gameBoard.tiles[25].setHasPlayer1(true);
+				//gameBoard.tiles[25].centralPanel.player
+			}
+		/*	if(gameBoard.tiles[i].getTileLocation()==player2.getHealth()) {
+				gameBoard.tiles[i].setHasPlayer2(true);
+			}
+			*/
+		//}
 	}
 	
 	public static Player getPlayer1() {
@@ -95,12 +120,6 @@ public class Javapocalypse implements ActionListener{
 
 	public static Player getPlayer2() {
 		return player2;
-	}
-	
-	
-	
-	public void setPlayer2(boolean[] characters) {
-		
 	}
 	
 }
