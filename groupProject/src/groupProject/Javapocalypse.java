@@ -92,14 +92,10 @@ public class Javapocalypse implements ActionListener{
 	
 	public static void startGame() {
 		int objectivesObtained = 0;
-		//while(objectivesObtained!=3) {
-			turnStart();
-			
-		//}
-		
+			updateBoardLocations();
 	}
 	
-	public static void turnStart() {
+	public static void updateBoardLocations() {
 		
 		for(Tile tile : gameBoard.tiles) {
 			if(tile.getTileLocation()==player1.getLocation()) {
@@ -107,6 +103,12 @@ public class Javapocalypse implements ActionListener{
 			}
 			if(tile.getTileLocation()==player2.getLocation()) {
 				tile.setHasPlayer2(true);
+			}
+			if(tile.getTileLocation()!=player1.getLocation()) {
+				tile.setHasPlayer1(false);
+			}
+			if(tile.getTileLocation()!=player2.getLocation()) {
+				tile.setHasPlayer2(false);
 			}
 		}
 	}
