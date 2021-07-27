@@ -15,9 +15,9 @@ public class Javapocalypse implements ActionListener
 	private static TitleFrame frame;
 	public static GameBoard gameBoard;
 	private static boolean[] characters;
-	
+
 	public static int objectivesObtained;
-	
+	public static int turn = 0;
 	public static Player player1;
 	public static Player player2;
 
@@ -76,9 +76,9 @@ public class Javapocalypse implements ActionListener
 	}
 
 	////////////////////////////////////////////////////////////////////
-	//Code below is all for the GameBoard interaction
+	// Code below is all for the GameBoard interaction
 	////////////////////////////////////////////////////////////////////
-	
+
 	/**
 	 * All code in the initializeGameBoard method will run only once we have hit the
 	 * ready button. Otherwise, code would run instantaneously
@@ -100,25 +100,43 @@ public class Javapocalypse implements ActionListener
 		gameBoard = new GameBoard();
 
 		startGame();
+		do
+		{
 
+			turnCycle();
+			turn++;
+		} while (turn < 50); // just trying to get this to work, don't need to keep this max turn limit of 50
+
+	}
+
+	/**
+	 * @return
+	 * 
+	 */
+	private static void turnCycle()
+	{
 		// Cycles between player1's turn, player2's turn, and zombie phase as well as if
 		// the game has been won or lost.
-		if (player1.getActions() == 0)
-		{
-			checkEndGame();
-			// TODO player 2's turn
-		}
+		player1.resetActions();
+		player2.resetActions();
 		if (player2.getActions() == 0)
 		{
 			// TODO zombies move/attack
-			checkEndGame();
 			zombieSpawn(gameBoard.tile2);
 			zombieSpawn(gameBoard.tile11);
 			zombieSpawn(gameBoard.tile22);
-			player1.resetActions();
-			player2.resetActions();
+			System.out.println(turn);
+		}
+		if (player1.getHealth() == 0 && player2.getHealth() == 0)
+		{
+			// TODO gameover
+		}
+		if (objectivesObtained == 3)
+		{
+			// TODO victory
 		}
 		// TODO if players health is set to 0, set their actions to 0 too
+		return;
 	}
 
 	/**
@@ -134,14 +152,18 @@ public class Javapocalypse implements ActionListener
 		{
 			tile.hasZombie1();
 			tile.hasZombie2();
+			Javapocalypse.updateBoardLocations();
 
 		} else if (zNum < 3)
 		{
-			return;
+			Javapocalypse.updateBoardLocations();
 		} else
 		{
 			tile.hasZombie1();
+			Javapocalypse.updateBoardLocations();
 		}
+		turnCycle();
+		return;
 	}
 
 	/**
@@ -151,24 +173,6 @@ public class Javapocalypse implements ActionListener
 	{
 		objectivesObtained = 0;
 		updateBoardLocations();
-	}
-
-	/**
-	 * Ends the game depending on two states: either both players are dead or all
-	 * objectives are obtained.
-	 */
-	public static void checkEndGame()
-	{
-		if (objectivesObtained == 3)
-		{
-			// Victory
-		}
-		if (player1.getHealth() == 0 && player2.getHealth() == 0)
-		{
-			// GameOver
-		} else
-			return;// if players are alive but don't have all objectives, returns nothing.
-
 	}
 
 	/**
@@ -229,11 +233,20 @@ class UpBtnListener implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		if (!Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasNorthWall())
+		if (Javapocalypse.player1.getActions() > 0
+				&& !Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasNorthWall())
 		{
 
 			Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() - 5);
+			Javapocalypse.player1.subtractAction();
 			Javapocalypse.updateBoardLocations();
+		} else if (Javapocalypse.player2.getActions() > 0
+				&& !Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasNorthWall())
+		{
+			Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() - 5);
+			Javapocalypse.player2.subtractAction();
+			Javapocalypse.updateBoardLocations();
+
 		}
 	}
 }
@@ -257,11 +270,20 @@ class DownBtnListener implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		if (!Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasSouthWall())
+		if (Javapocalypse.player1.getActions() > 0
+				&& !Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasSouthWall())
 		{
 
 			Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() + 5);
+			Javapocalypse.player1.subtractAction();
 			Javapocalypse.updateBoardLocations();
+		} else if (Javapocalypse.player2.getActions() > 0
+				&& !Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasSouthWall())
+		{
+			Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() + 5);
+			Javapocalypse.player2.subtractAction();
+			Javapocalypse.updateBoardLocations();
+
 		}
 	}
 }
@@ -285,10 +307,19 @@ class LeftBtnListener implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		if (!Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasWestWall())
+		if (Javapocalypse.player1.getActions() > 0
+				&& !Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasWestWall())
 		{
 
 			Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() - 1);
+			Javapocalypse.player1.subtractAction();
+			Javapocalypse.updateBoardLocations();
+
+		} else if (Javapocalypse.player2.getActions() > 0
+				&& !Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasWestWall())
+		{
+			Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() - 1);
+			Javapocalypse.player2.subtractAction();
 			Javapocalypse.updateBoardLocations();
 
 		}
@@ -314,12 +345,22 @@ class RightBtnListener implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		if (!Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasEastWall())
+		if (Javapocalypse.player1.getActions() > 0
+				&& !Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasEastWall())
 		{
 
 			Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() + 1);
+			Javapocalypse.player1.subtractAction();
+			Javapocalypse.updateBoardLocations();
+
+		} else if (Javapocalypse.player2.getActions() > 0
+				&& !Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasEastWall())
+		{
+			Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() + 1);
+			Javapocalypse.player2.subtractAction();
 			Javapocalypse.updateBoardLocations();
 
 		}
+
 	}
 }

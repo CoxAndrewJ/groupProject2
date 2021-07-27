@@ -89,6 +89,12 @@ public class Player
 		return actions;
 	}
 
+	public int subtractAction()
+	{
+		actions--;
+		return actions;
+	}
+
 	public int resetActions()
 	{
 		actions = 3;
