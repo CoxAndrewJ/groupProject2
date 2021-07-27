@@ -150,7 +150,6 @@ class UpBtnListener implements ActionListener{
 				}
 			}
 		}
-		System.out.println(Javapocalypse.player1.getLocation());
 	}
 }
 class DownBtnListener implements ActionListener{

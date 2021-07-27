@@ -13,11 +13,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -31,9 +29,6 @@ public class GameBoard implements ActionListener
 
 	private JPanel contentPane;
 	private JMenu file;
-
-	private ImageIcon player1;
-	private ImageIcon player2;
 
 	private JPanel gameInteractionPanel;
 	private JPanel directionPanel;
@@ -103,74 +98,6 @@ public class GameBoard implements ActionListener
 		if (e.getSource() == file)
 		{
 			playerSaveFile(Javapocalypse.getPlayer1(), Javapocalypse.getPlayer2());
-		}
-	}
-
-	private void buttonBoard(JPanel gameBoard)
-	{
-		List<Integer> data = new ArrayList<>();
-		for (int i = 0; i < 25; i++)
-		{
-			data.add(i);
-		}
-		for (int index = 0; index < data.size(); index++)
-		{
-
-			JLayeredPane tile = new JLayeredPane();
-			tile.setBorder(new EmptyBorder(0, 0, 0, 0));
-			// tile.setLayout(new GridLayout(2, 2, 10, 10));
-			tile.setOpaque(true);
-
-			JPanel panel = new JPanel();
-			panel.setLayout(new GridLayout(2, 2, 10, 10));
-
-			JLabel lbl1 = new JLabel("1");
-			JLabel lbl2 = new JLabel("2");
-			JLabel lbl3 = new JLabel("4");
-			JLabel lbl4 = new JLabel("3");
-			panel.add(lbl1);
-			panel.add(lbl2);
-			panel.add(lbl3);
-			panel.add(lbl4);
-			JButton button = new JButton();
-			button.setSize(100, 100);
-			button.setBounds(0, 50, 50, 50);
-			button.setContentAreaFilled(false);
-
-			tile.add(panel, JLayeredPane.DEFAULT_LAYER);
-			tile.add(button, JLayeredPane.DRAG_LAYER);
-			gameBoard.add(tile);
-
-			if (buildingSquares.contains(index))
-			{
-				tile.setBackground(new Color(150, 90, 20));
-
-			} else
-			{
-				tile.setBackground(new Color(50, 185, 30));
-			}
-
-		}
-	}
-
-	/**
-	 * Creates the buttons that will act as the game board.
-	 * 
-	 * @param gameBoard
-	 */
-	private void buttonsOnBoard(JPanel gameBoard)
-	{
-		List<Integer> data = new ArrayList<>();
-		for (int i = 0; i < 25; i++)
-		{
-			data.add(i);
-		}
-		for (int index = 0; index < data.size(); index++)
-		{
-			JButton button = new JButton("" + index);
-			button.setBounds(0, 50, 50, 50);
-			gameBoard.add(button);
-
 		}
 	}
 
@@ -667,7 +594,7 @@ public class GameBoard implements ActionListener
 		buttonsBoard.add(tile16);
 
 		tile17 = new Tile();
-		tile2.setTileLocation(17);
+		tile17.setTileLocation(17);
 		tile17.northPanel.setBackground(Color.LIGHT_GRAY);
 		tile17.setHasNorthWall(false);
 		tile17.westPanel.setBackground(Color.LIGHT_GRAY);
