@@ -39,9 +39,9 @@ public class GameBoard implements ActionListener
 	public List<Integer> buildingSquares = new ArrayList<>();
 
 	/**
-	 * TODO Create the main frame of the item We will add 2 panels: the gameBoard
-	 * panel on west and the sidePanel on east We then add two more panels to the
-	 * east panel
+	 * Create the main frame of the item We will add 2 panels: the gameBoard panel
+	 * on west and the sidePanel on east We then add two more panels to the east
+	 * panel
 	 * 
 	 * @author Cody, Hayden
 	 */
@@ -53,7 +53,6 @@ public class GameBoard implements ActionListener
 		JFrame mainFrame = new JFrame();
 		mainFrame.setVisible(true);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		// mainFrame.setBounds(100, 100, 1500, 800);
 		mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
 		// this creates the menu bar so that we can have a save option
@@ -79,9 +78,6 @@ public class GameBoard implements ActionListener
 		JPanel gameBoard = buttonsBoard();
 		contentPane.add(gameBoard, BorderLayout.CENTER);
 
-		// Creates 25 buttons for the game board
-		// buttonBoard(gameBoard);
-
 		// Create a new panel to be on the East side, and hold two more panels--
 		// resultsPanel & gameInteractionPanel
 		JPanel sidePanel = createSidePanel();
@@ -102,10 +98,8 @@ public class GameBoard implements ActionListener
 	}
 
 	/**
-	 * -------------------------------------------------- All the following code is
-	 * for the side Panel. --------------------------------------------------- The
-	 * side panel is on the east side and contains two more panels-- resultsPanel
-	 * gameInteractionPanel
+	 * All the following code is for the side Panel. The side panel is on the east
+	 * side and contains two more panels - resultsPanel gameInteractionPanel
 	 * 
 	 * @author Andrew
 	 * @return
@@ -253,6 +247,12 @@ public class GameBoard implements ActionListener
 		return directionPanel;
 	}
 
+	/**
+	 * Contains information about the game such as player health, attack roll, what
+	 * player's turn it is, current objectives
+	 * 
+	 * @return
+	 */
 	private JPanel createResultsPanel()
 	{
 		JPanel resultsPanel = new JPanel();

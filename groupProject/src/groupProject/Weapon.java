@@ -11,18 +11,8 @@ package groupProject;
 public enum Weapon
 {
 
-	//start with weaker unarmed state until chests are looted
-	 UNARMED(0, 1, 1, 1),
-	 BASEBALLBAT(0, 1, 3, 1), 
-	 CHAINSAW(0, 5, 5, 2), 
-	 PISTOL(1, 1, 4, 1), 
-	 SHOTGUN(1, 2, 4, 2);
-	
-	// Possible upgraded weapons
-	// BASEBALLBATWITHNAILS()
-	// DOUBLECHAINSAW()
-	// DOUBLEBARRELSHOTGUN()
-	// RIFLE()
+	// start with weaker unarmed state until chests are looted
+	UNARMED(0, 1, 1, 1), BASEBALLBAT(0, 1, 3, 1), CHAINSAW(0, 5, 5, 2), PISTOL(1, 1, 4, 1), SHOTGUN(1, 2, 4, 2);
 
 	private final int range, numberOfDice, damageRoll, damageRating;
 

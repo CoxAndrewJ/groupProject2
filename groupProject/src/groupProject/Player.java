@@ -2,7 +2,8 @@ package groupProject;
 
 import javax.swing.ImageIcon;
 
-public class Player {
+public class Player
+{
 
 	private int health = 5;
 	private int location;
@@ -10,63 +11,75 @@ public class Player {
 	private String name;
 	private ImageIcon image;
 
-	public Player(String name, ImageIcon image) {
+	public Player(String name, ImageIcon image)
+	{
 		this.name = name;
 		this.image = image;
 	}
-	
-	public void move() {
-		
+
+	public void move()
+	{
+
 	}
-	
-	public void fight() {
-		
+
+	public void attack()
+	{
+
 	}
-	
-	public void loot() {
-		
+
+	public void loot()
+	{
+
 	}
-	
-	public void openDoor() {
-		
+
+	public void openDoor()
+	{
+
 	}
-	
-	
-	
-	//Getters and setters
-	public int getHealth() {
+
+	// Getters and setters
+	public int getHealth()
+	{
 		return health;
 	}
 
-	public void setHealth(int health) {
+	public void setHealth(int health)
+	{
 		this.health = health;
 	}
 
-	public int getLocation() {
+	public int getLocation()
+	{
 		return location;
 	}
 
-	public void setLocation(int location) {
+	public void setLocation(int location)
+	{
 		this.location = location;
 	}
 
-	public Weapon getWeapon() {
+	public Weapon getWeapon()
+	{
 		return weapon;
 	}
 
-	public void setWeapon(Weapon weapon) {
+	public void setWeapon(Weapon weapon)
+	{
 		this.weapon = weapon;
 	}
-	
-	public String getName() {
+
+	public String getName()
+	{
 		return name;
 	}
 
-	public ImageIcon getImage() {
+	public ImageIcon getImage()
+	{
 		return image;
 	}
-	
-	public void setImage(ImageIcon image) {
+
+	public void setImage(ImageIcon image)
+	{
 		this.image = image;
 	}
 
