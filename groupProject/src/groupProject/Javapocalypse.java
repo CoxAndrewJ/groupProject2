@@ -15,7 +15,9 @@ public class Javapocalypse implements ActionListener
 	private static TitleFrame frame;
 	public static GameBoard gameBoard;
 	private static boolean[] characters;
+	
 	public static int objectivesObtained;
+	
 	public static Player player1;
 	public static Player player2;
 
@@ -73,6 +75,10 @@ public class Javapocalypse implements ActionListener
 		frame = new TitleFrame();
 	}
 
+	////////////////////////////////////////////////////////////////////
+	//Code below is all for the GameBoard interaction
+	////////////////////////////////////////////////////////////////////
+	
 	/**
 	 * All code in the initializeGameBoard method will run only once we have hit the
 	 * ready button. Otherwise, code would run instantaneously
@@ -227,25 +233,7 @@ class UpBtnListener implements ActionListener
 		{
 
 			Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() - 5);
-			for (Tile tile : Javapocalypse.gameBoard.tiles)
-			{
-				if (tile.getTileLocation() == Javapocalypse.player1.getLocation())
-				{
-					tile.setHasPlayer1(true);
-				}
-				if (tile.getTileLocation() == Javapocalypse.player2.getLocation())
-				{
-					tile.setHasPlayer2(true);
-				}
-				if (tile.getTileLocation() != Javapocalypse.player1.getLocation())
-				{
-					tile.setHasPlayer1(false);
-				}
-				if (tile.getTileLocation() != Javapocalypse.player2.getLocation())
-				{
-					tile.setHasPlayer2(false);
-				}
-			}
+			Javapocalypse.updateBoardLocations();
 		}
 	}
 }
@@ -273,25 +261,7 @@ class DownBtnListener implements ActionListener
 		{
 
 			Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() + 5);
-			for (Tile tile : Javapocalypse.gameBoard.tiles)
-			{
-				if (tile.getTileLocation() == Javapocalypse.player1.getLocation())
-				{
-					tile.setHasPlayer1(true);
-				}
-				if (tile.getTileLocation() == Javapocalypse.player2.getLocation())
-				{
-					tile.setHasPlayer2(true);
-				}
-				if (tile.getTileLocation() != Javapocalypse.player1.getLocation())
-				{
-					tile.setHasPlayer1(false);
-				}
-				if (tile.getTileLocation() != Javapocalypse.player2.getLocation())
-				{
-					tile.setHasPlayer2(false);
-				}
-			}
+			Javapocalypse.updateBoardLocations();
 		}
 	}
 }
@@ -319,25 +289,8 @@ class LeftBtnListener implements ActionListener
 		{
 
 			Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() - 1);
-			for (Tile tile : Javapocalypse.gameBoard.tiles)
-			{
-				if (tile.getTileLocation() == Javapocalypse.player1.getLocation())
-				{
-					tile.setHasPlayer1(true);
-				}
-				if (tile.getTileLocation() == Javapocalypse.player2.getLocation())
-				{
-					tile.setHasPlayer2(true);
-				}
-				if (tile.getTileLocation() != Javapocalypse.player1.getLocation())
-				{
-					tile.setHasPlayer1(false);
-				}
-				if (tile.getTileLocation() != Javapocalypse.player2.getLocation())
-				{
-					tile.setHasPlayer2(false);
-				}
-			}
+			Javapocalypse.updateBoardLocations();
+
 		}
 	}
 }
@@ -365,25 +318,8 @@ class RightBtnListener implements ActionListener
 		{
 
 			Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() + 1);
-			for (Tile tile : Javapocalypse.gameBoard.tiles)
-			{
-				if (tile.getTileLocation() == Javapocalypse.player1.getLocation())
-				{
-					tile.setHasPlayer1(true);
-				}
-				if (tile.getTileLocation() == Javapocalypse.player2.getLocation())
-				{
-					tile.setHasPlayer2(true);
-				}
-				if (tile.getTileLocation() != Javapocalypse.player1.getLocation())
-				{
-					tile.setHasPlayer1(false);
-				}
-				if (tile.getTileLocation() != Javapocalypse.player2.getLocation())
-				{
-					tile.setHasPlayer2(false);
-				}
-			}
+			Javapocalypse.updateBoardLocations();
+
 		}
 	}
 }
