@@ -11,7 +11,7 @@ import java.awt.GridLayout;
 @SuppressWarnings("serial")
 public class Tile extends JPanel {
 
-	private int location = 1;//This is used to set the location of the particular tile
+	private int location;//This is used to set the location of the particular tile
 	
 	private boolean hasPlayer1 = false;
 	private boolean hasPlayer2 = false;

@@ -304,6 +304,7 @@ public class GameBoard implements ActionListener
 		JLabel blankLbl = new JLabel();
 
 		JButton leftBtn = new JButton("<");
+		leftBtn.addActionListener(LeftBtnListener.getListener());
 		leftBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
 
 		JButton downBtn = new JButton("v");
@@ -311,6 +312,7 @@ public class GameBoard implements ActionListener
 		downBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
 
 		JButton rightBtn = new JButton(">");
+		rightBtn.addActionListener(RightBtnListener.getListener());
 		rightBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
 
 		directionPanel.add(backBtn);

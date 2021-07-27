@@ -150,6 +150,7 @@ class UpBtnListener implements ActionListener{
 				}
 			}
 		}
+		System.out.println(Javapocalypse.player1.getLocation());
 	}
 }
 class DownBtnListener implements ActionListener{
@@ -181,4 +182,63 @@ class DownBtnListener implements ActionListener{
 		}
 	}
 }
+class LeftBtnListener implements ActionListener{
+	
+	public static LeftBtnListener leftBtnListener = new LeftBtnListener();
+
+	public static LeftBtnListener getListener(){
+		return leftBtnListener;
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(!Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasWestWall()) {
+			
+			Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation()-1);
+			for(Tile tile : Javapocalypse.gameBoard.tiles) {
+				if(tile.getTileLocation()==Javapocalypse.player1.getLocation()) {
+					tile.setHasPlayer1(true);
+				}
+				if(tile.getTileLocation()==Javapocalypse.player2.getLocation()) {
+					tile.setHasPlayer2(true);
+				}
+				if(tile.getTileLocation()!=Javapocalypse.player1.getLocation()) {
+					tile.setHasPlayer1(false);
+				}
+				if(tile.getTileLocation()!=Javapocalypse.player2.getLocation()) {
+					tile.setHasPlayer2(false);
+				}
+			}
+		}
+	}
+}
+class RightBtnListener implements ActionListener{
+	
+	public static RightBtnListener rightBtnListener = new RightBtnListener();
+
+	public static RightBtnListener getListener(){
+		return rightBtnListener;
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(!Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasEastWall()) {
+			
+			Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation()+1);
+			for(Tile tile : Javapocalypse.gameBoard.tiles) {
+				if(tile.getTileLocation()==Javapocalypse.player1.getLocation()) {
+					tile.setHasPlayer1(true);
+				}
+				if(tile.getTileLocation()==Javapocalypse.player2.getLocation()) {
+					tile.setHasPlayer2(true);
+				}
+				if(tile.getTileLocation()!=Javapocalypse.player1.getLocation()) {
+					tile.setHasPlayer1(false);
+				}
+				if(tile.getTileLocation()!=Javapocalypse.player2.getLocation()) {
+					tile.setHasPlayer2(false);
+				}
+			}
+		}
+	}
+}
+
 
