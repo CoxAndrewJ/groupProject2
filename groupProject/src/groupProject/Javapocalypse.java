@@ -92,26 +92,23 @@ public class Javapocalypse implements ActionListener{
 	
 	public static void startGame() {
 		int objectivesObtained = 0;
-		while(objectivesObtained!=3) {
+		//while(objectivesObtained!=3) {
 			turnStart();
 			
-		}
+		//}
 		
 	}
 	
 	public static void turnStart() {
-		//for(int i = 1 ; i <= 25 ; i++) {
-			if(gameBoard.tiles[25].
-					getTileLocation()==
-					player1.getLocation()) {
-				gameBoard.tiles[25].setHasPlayer1(true);
-				//gameBoard.tiles[25].centralPanel.player
+		
+		for(Tile tile : gameBoard.tiles) {
+			if(tile.getTileLocation()==player1.getLocation()) {
+				tile.setHasPlayer1(true);
 			}
-		/*	if(gameBoard.tiles[i].getTileLocation()==player2.getHealth()) {
-				gameBoard.tiles[i].setHasPlayer2(true);
+			if(tile.getTileLocation()==player2.getLocation()) {
+				tile.setHasPlayer2(true);
 			}
-			*/
-		//}
+		}
 	}
 	
 	public static Player getPlayer1() {

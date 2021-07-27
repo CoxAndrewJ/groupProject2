@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.BoxLayout;
@@ -374,7 +375,7 @@ public class GameBoard implements ActionListener
 		}
 	}
 	
-	
+	Tile tile0 = new Tile();
 	Tile tile1;
 	Tile tile2;
 	Tile tile3;
@@ -401,7 +402,7 @@ public class GameBoard implements ActionListener
 	Tile tile24;
 	Tile tile25;
 	
-	Tile[] tiles = {null,tile1,tile2,tile3,tile4,tile5,tile6,tile7,tile8,tile9,tile10,tile11,tile12,tile13,tile14,tile15,tile16,tile17,tile18,tile19,tile20,tile21,tile22,tile23,tile24,tile25};
+	ArrayList<Tile> tiles = new ArrayList<>();
 	/**
 	 * This is used to create all the buttons on the gameBoard
 	 * The reason this method is so huge is because we need to set every tile to its own unique properties.
@@ -773,7 +774,9 @@ public class GameBoard implements ActionListener
 				tile25.setHasSouthWall(true);
 				tile25.centralPanel.setBackground(Color.LIGHT_GRAY);
 			buttonsBoard.add(tile25);
-
+			
+		tiles.addAll(Arrays.asList(tile0,tile1,tile2,tile3,tile4,tile5,tile6,tile7,tile8,tile9,tile10,tile11,tile12,tile13,tile14,tile15,tile16,tile17,tile18,tile19,tile20,tile21,tile22,tile23,tile24,tile25));
+		
 		return buttonsBoard;
 	}
 }
