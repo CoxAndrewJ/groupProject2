@@ -298,6 +298,7 @@ public class GameBoard implements ActionListener
 		});
 
 		JButton upBtn = new JButton("^");
+		upBtn.addActionListener(UpBtnListener.getListener());
 		upBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
 
 		JLabel blankLbl = new JLabel();
@@ -306,6 +307,7 @@ public class GameBoard implements ActionListener
 		leftBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
 
 		JButton downBtn = new JButton("v");
+		downBtn.addActionListener(DownBtnListener.getListener());
 		downBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
 
 		JButton rightBtn = new JButton(">");

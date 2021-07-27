@@ -10,11 +10,11 @@ public class Javapocalypse implements ActionListener{
 	//The first 4 fields are used to create both the gameBoard as well as the titleFrame
 	private static Javapocalypse instance = new Javapocalypse();
 	private static TitleFrame frame;
-	private static GameBoard gameBoard;
+	public static GameBoard gameBoard;
 	private static boolean[]characters;
 	
-	private static Player player1;
-	private static Player player2;
+	public static Player player1;
+	public static Player player2;
 
 	Dice die = new Dice();
 
@@ -122,3 +122,63 @@ public class Javapocalypse implements ActionListener{
 	}
 	
 }
+
+class UpBtnListener implements ActionListener{
+	
+	public static UpBtnListener upBtnListener = new UpBtnListener();
+
+	public static UpBtnListener getListener(){
+		return upBtnListener;
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(!Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasNorthWall()) {
+			
+			Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation()-5);
+			for(Tile tile : Javapocalypse.gameBoard.tiles) {
+				if(tile.getTileLocation()==Javapocalypse.player1.getLocation()) {
+					tile.setHasPlayer1(true);
+				}
+				if(tile.getTileLocation()==Javapocalypse.player2.getLocation()) {
+					tile.setHasPlayer2(true);
+				}
+				if(tile.getTileLocation()!=Javapocalypse.player1.getLocation()) {
+					tile.setHasPlayer1(false);
+				}
+				if(tile.getTileLocation()!=Javapocalypse.player2.getLocation()) {
+					tile.setHasPlayer2(false);
+				}
+			}
+		}
+	}
+}
+class DownBtnListener implements ActionListener{
+	
+	public static DownBtnListener downBtnListener = new DownBtnListener();
+
+	public static DownBtnListener getListener(){
+		return downBtnListener;
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(!Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasSouthWall()) {
+			
+			Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation()+5);
+			for(Tile tile : Javapocalypse.gameBoard.tiles) {
+				if(tile.getTileLocation()==Javapocalypse.player1.getLocation()) {
+					tile.setHasPlayer1(true);
+				}
+				if(tile.getTileLocation()==Javapocalypse.player2.getLocation()) {
+					tile.setHasPlayer2(true);
+				}
+				if(tile.getTileLocation()!=Javapocalypse.player1.getLocation()) {
+					tile.setHasPlayer1(false);
+				}
+				if(tile.getTileLocation()!=Javapocalypse.player2.getLocation()) {
+					tile.setHasPlayer2(false);
+				}
+			}
+		}
+	}
+}
+
