@@ -155,10 +155,10 @@ public class GameBoard implements ActionListener
 		});
 		gameInteractionPanel.add(moveBtn);
 
-		JButton lootBtn = new JButton("Loot");
-		lootBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
-		lootBtn.setHorizontalTextPosition(SwingConstants.CENTER);
-		lootBtn.addActionListener(new ActionListener()
+		JButton openBtn = new JButton("Open");
+		openBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		openBtn.setHorizontalTextPosition(SwingConstants.CENTER);
+		openBtn.addActionListener(new ActionListener()
 		{
 			@Override
 			public void actionPerformed(ActionEvent e)
@@ -168,7 +168,7 @@ public class GameBoard implements ActionListener
 				directionPanel.setVisible(true);
 			}
 		});
-		gameInteractionPanel.add(lootBtn);
+		gameInteractionPanel.add(openBtn);
 
 		JButton attackBtn = new JButton("Attack");
 		attackBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
@@ -184,19 +184,6 @@ public class GameBoard implements ActionListener
 		});
 		gameInteractionPanel.add(attackBtn);
 
-		JButton openBtn = new JButton("Open");
-		openBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
-		openBtn.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				buttonNumberPressed[2] = true;
-				gameInteractionPanel.setVisible(false);
-				directionPanel.setVisible(true);
-			}
-		});
-		gameInteractionPanel.add(openBtn);
 		return gameInteractionPanel;
 	}
 
@@ -470,6 +457,7 @@ public class GameBoard implements ActionListener
 		tile6.setHasSouthWall(true);
 		tile6.centralPanel.setBackground(Color.DARK_GRAY);
 
+		tile6.setHasEastDoor(true);
 		tile6.northPanel.setVisible(false);
 		buttonsBoard.add(tile6);
 
@@ -568,7 +556,7 @@ public class GameBoard implements ActionListener
 		tile13.southPanel.setBackground(Color.DARK_GRAY);
 		tile13.setHasSouthWall(false);
 		tile13.centralPanel.setBackground(Color.DARK_GRAY);
-		
+
 		tile13.setHasNorthDoor(true);
 		tile13.southPanel.setVisible(false);
 		buttonsBoard.add(tile13);
@@ -745,7 +733,7 @@ public class GameBoard implements ActionListener
 		tile25.setHasWestWall(true);
 		tile25.eastPanel.setBackground(Color.LIGHT_GRAY);
 		tile25.setHasEastWall(true);
-		tile25.southPanel.setBackground(Color.LIGHT_GRAY);
+		tile25.southPanel.setBackground(Color.RED);
 		tile25.setHasSouthWall(true);
 		tile25.centralPanel.setBackground(Color.LIGHT_GRAY);
 		buttonsBoard.add(tile25);
