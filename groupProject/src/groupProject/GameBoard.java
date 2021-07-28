@@ -32,9 +32,6 @@ public class GameBoard implements ActionListener
 
 	private JPanel gameInteractionPanel;
 	private JPanel directionPanel;
-	public static JLabel actionsLbl;
-	public static JLabel objectiveLbl;
-	public static JLabel currentPlayerImage;
 
 	private boolean[] buttonNumberPressed =
 	{ false, false, false, false };
@@ -262,45 +259,39 @@ public class GameBoard implements ActionListener
 	 * 
 	 * @return
 	 */
-	public static JPanel createResultsPanel()
+	private JPanel createResultsPanel()
 	{
 		JPanel resultsPanel = new JPanel();
 		resultsPanel.setBackground(Color.LIGHT_GRAY);
 		resultsPanel.setLayout(new GridLayout(2, 2, 0, 0));
 
-		JLabel healthLbl = new JLabel("Health: " + Javapocalypse.player1.getHealth());
+		JLabel healthLbl = new JLabel("Health: " /* + healthAmount */);
 		healthLbl.setFont(new Font("Tahoma", Font.PLAIN, 32));
 		healthLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		resultsPanel.add(healthLbl);
 
-		// Maybe change to probability of hit with weapon and get rid of dice all
-		// together
 		JLabel diceRollLbl = new JLabel("Dice Roll: " /* + dice.getRoll */);
 		diceRollLbl.setFont(new Font("Tahoma", Font.PLAIN, 32));
 		diceRollLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		resultsPanel.add(diceRollLbl);
 
-		actionsLbl = new JLabel();
-		actionsLbl.setText("Actions: " + Javapocalypse.player1.getActions());
+		JLabel actionsLbl = new JLabel("Actions: " /* + numberOfActions */);
 		actionsLbl.setFont(new Font("Tahoma", Font.PLAIN, 32));
 		actionsLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		resultsPanel.add(actionsLbl);
 
-		objectiveLbl = new JLabel("Objectives: " + Javapocalypse.objectivesRemaining);
-		objectiveLbl.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		JLabel objectiveLbl = new JLabel("Objective: " /* + objectiveNumber */);
+		objectiveLbl.setFont(new Font("Tahoma", Font.PLAIN, 32));
 		objectiveLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		resultsPanel.add(objectiveLbl);
 
 		// This label will be an image
-		JLabel statusIconLbl = new JLabel("Player Turn:");
+		JLabel statusIconLbl = new JLabel("statusIconLbl");
 		// statusIconLbl.setIcon(smileyFace,SadFace);
 		statusIconLbl.setFont(new Font("Tahoma", Font.PLAIN, 32));
 		statusIconLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		resultsPanel.add(statusIconLbl);
 
-		// Current player's turn Image appears here.
-		currentPlayerImage = new JLabel(Javapocalypse.player1.getImage());
-		resultsPanel.add(currentPlayerImage);
 		// Potentially used to display a dice image
 		/*
 		 * JLabel lblNewLabel_1 = new JLabel("New label"); add(lblNewLabel_1);

@@ -201,6 +201,7 @@ public class TitleFrame extends JFrame
 			@Override
 			public void itemStateChanged(ItemEvent e)
 			{
+				charChx.setBackground(Color.BLUE);
 				// For when it's already checked and is being unchecked
 				if (!charChx.isSelected())
 				{
