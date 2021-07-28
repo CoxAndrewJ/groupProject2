@@ -130,9 +130,28 @@ public class Javapocalypse implements ActionListener
 		// the game has been won or lost.
 		player1.resetActions();
 		player2.resetActions();
-		if (player1.getHealth() == 0 && player2.getHealth() == 0)
+
+		if (player1.getHealth() < 1)
 		{
-			// TODO gameover
+			for (Tile tile : gameBoard.tiles)
+			{
+				tile.setHasPlayer1(false);
+			}
+			player1.setDeadActions();
+
+		}
+		if (player2.getHealth() < 1)
+		{
+			for (Tile tile : gameBoard.tiles)
+			{
+				tile.setHasPlayer1(false);
+			}
+			player2.setDeadActions();
+
+		}
+		if (player1.getHealth() < 1 && player2.getHealth() < 1)
+		{
+			System.out.println("GAMEOVER");// TODO gameover
 		}
 		if (objectivesObtained == 3)
 		{

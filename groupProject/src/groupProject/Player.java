@@ -11,6 +11,7 @@ public class Player
 	private String name;
 	private ImageIcon image;
 	public int actions;
+	public final int deadActions = 0;
 
 	public Player(String name, ImageIcon image)
 	{
@@ -57,6 +58,11 @@ public class Player
 	public void setLocation(int location)
 	{
 		this.location = location;
+	}
+
+	public void setDeadActions()
+	{
+		actions = deadActions;
 	}
 
 	public Weapon getWeapon()
