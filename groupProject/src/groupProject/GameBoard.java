@@ -35,6 +35,7 @@ public class GameBoard implements ActionListener
 	public static JLabel actionsLbl;
 	public static JLabel objectiveLbl;
 	public static JLabel currentPlayerImage;
+	public static JLabel healthLbl;
 
 	private boolean[] buttonNumberPressed =
 	{ false, false, false, false };
@@ -198,8 +199,9 @@ public class GameBoard implements ActionListener
 		gameInteractionPanel.add(openBtn);
 		return gameInteractionPanel;
 	}
-	
-	public boolean[] getNumbersPressedArr() {
+
+	public boolean[] getNumbersPressedArr()
+	{
 		return buttonNumberPressed;
 	}
 
@@ -272,7 +274,8 @@ public class GameBoard implements ActionListener
 		resultsPanel.setBackground(Color.LIGHT_GRAY);
 		resultsPanel.setLayout(new GridLayout(2, 2, 0, 0));
 
-		JLabel healthLbl = new JLabel("Health: " + Javapocalypse.player1.getHealth());
+		healthLbl = new JLabel();
+		healthLbl.setText("Health: " + Javapocalypse.player1.getHealth());
 		healthLbl.setFont(new Font("Tahoma", Font.PLAIN, 32));
 		healthLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		resultsPanel.add(healthLbl);

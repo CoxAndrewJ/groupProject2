@@ -117,6 +117,7 @@ public class Javapocalypse implements ActionListener
 		player.subtractAction();
 		GameBoard.actionsLbl.setText("Actions: " + player.getActions());
 		Javapocalypse.updateBoardLocations();
+		GameBoard.healthLbl.setText("Health: " + player.getHealth());
 	}
 
 	/**
@@ -148,6 +149,8 @@ public class Javapocalypse implements ActionListener
 	 */
 	public static void zombieSpawn(Tile tile)
 	{
+		zombieMoveAttack(tile);
+
 		Random rand = new Random();
 		int zNum = rand.nextInt(7);
 		if (zNum > 5)
@@ -170,6 +173,42 @@ public class Javapocalypse implements ActionListener
 
 	public static void zombieMoveAttack(Tile tile)
 	{
+		if (tile.hasPlayer1())
+		{
+			if (tile.hasZombie1())
+			{
+				player1.setHealth(player1.getHealth() - 1);
+				updateStuffBtnPress(player1);
+
+				if (tile.hasZombie2())
+				{
+					player1.setHealth(player1.getHealth() - 2);
+					updateStuffBtnPress(player1);
+				}
+
+			}
+		}
+
+		if (tile.hasPlayer2())
+		{
+			if (tile.hasZombie1())
+			{
+				player2.setHealth(player2.getHealth() - 1);
+				updateStuffBtnPress(player2);
+
+				if (tile.hasZombie2())
+				{
+					player2.setHealth(player2.getHealth() - 2);
+					updateStuffBtnPress(player2);
+				}
+
+			}
+		}
+
+		if ((tile.hasZombie1() || tile.hasZombie2()) && !(tile.hasPlayer1() || tile.hasPlayer2()))
+		{
+			System.out.println("MOVE");
+		}
 
 	}
 
