@@ -158,7 +158,7 @@ public class Javapocalypse implements ActionListener
 		{
 			// TODO victory
 		}
-		// TODO if players health is set to 0, set their actions to 0 too
+
 		return;
 	}
 
@@ -227,7 +227,10 @@ public class Javapocalypse implements ActionListener
 
 		if ((tile.hasZombie1() || tile.hasZombie2()) && !(tile.hasPlayer1() || tile.hasPlayer2()))
 		{
-			System.out.println("MOVE");
+			if (tile.getTileLocation() == 2)
+			{
+
+			}
 		}
 
 	}
