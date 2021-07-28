@@ -568,7 +568,8 @@ public class GameBoard implements ActionListener
 		tile13.southPanel.setBackground(Color.DARK_GRAY);
 		tile13.setHasSouthWall(false);
 		tile13.centralPanel.setBackground(Color.DARK_GRAY);
-
+		
+		tile13.setHasNorthDoor(true);
 		tile13.southPanel.setVisible(false);
 		buttonsBoard.add(tile13);
 
