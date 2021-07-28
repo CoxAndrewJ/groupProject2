@@ -22,6 +22,9 @@ public class Javapocalypse implements ActionListener
 	public static Player player1;
 	public static Player player2;
 
+	static Random randZombieSpawn = new Random();
+	static Random randDirection = new Random();
+	
 	Dice die = new Dice();
 
 	// the following 3 methods are used to dispose of the frame and instantiate the
@@ -107,6 +110,8 @@ public class Javapocalypse implements ActionListener
 
 	}
 
+	
+	
 	/**
 	 * Updates the action count, player image, action label, and whatever else we
 	 * need to update
@@ -171,8 +176,8 @@ public class Javapocalypse implements ActionListener
 	{
 		zombieMoveAttack(tile);
 
-		Random rand = new Random();
-		int zNum = rand.nextInt(7);
+		randZombieSpawn = new Random();
+		int zNum = randZombieSpawn.nextInt(7);
 		if (zNum > 5)
 		{
 			tile.setHasZombie1(true);
@@ -202,7 +207,7 @@ public class Javapocalypse implements ActionListener
 
 				if (tile.hasZombie2())
 				{
-					player1.setHealth(player1.getHealth() - 2);
+					player1.setHealth(player1.getHealth() - 1);
 					updateStuffBtnPress(player1);
 				}
 
@@ -218,7 +223,7 @@ public class Javapocalypse implements ActionListener
 
 				if (tile.hasZombie2())
 				{
-					player2.setHealth(player2.getHealth() - 2);
+					player2.setHealth(player2.getHealth() - 1);
 					updateStuffBtnPress(player2);
 				}
 
@@ -279,26 +284,6 @@ public class Javapocalypse implements ActionListener
 		return player2;
 	}
 
-	public void move(int n)
-	{
-		if (player1.getActions() > 0 && !gameBoard.tiles.get(player1.getLocation()).hasNorthWall())
-		{
-			player1.setLocation(player1.getLocation() + n);
-			updateStuffBtnPress(player1);
-
-		} else if (Javapocalypse.player2.getActions() > 0
-				&& !Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasNorthWall())
-		{
-			Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() - 5);
-			Javapocalypse.updateStuffBtnPress(Javapocalypse.player2);
-
-		} else
-		{
-			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-		}
-	}
 }
 
 /**
