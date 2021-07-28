@@ -144,7 +144,7 @@ public class Javapocalypse implements ActionListener
 		{
 			for (Tile tile : gameBoard.tiles)
 			{
-				tile.setHasPlayer1(false);
+				tile.setHasPlayer2(false);
 			}
 			player2.setDeadActions();
 
