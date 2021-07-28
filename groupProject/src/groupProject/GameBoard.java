@@ -198,6 +198,10 @@ public class GameBoard implements ActionListener
 		gameInteractionPanel.add(openBtn);
 		return gameInteractionPanel;
 	}
+	
+	public boolean[] getNumbersPressedArr() {
+		return buttonNumberPressed;
+	}
 
 	/**
 	 * This panel replaces the interaction panel with a panel containing arrow keys
