@@ -98,8 +98,8 @@ public class Javapocalypse implements ActionListener
 		objectivesRemaining = 3;
 
 		// Start the players off on space 25
-		player1.setLocation(25);
-		player2.setLocation(25);
+		player1.setLocation(1);
+		player2.setLocation(10);
 		player1.resetActions();
 		player2.resetActions();
 
@@ -174,8 +174,9 @@ public class Javapocalypse implements ActionListener
 	 */
 	public static void zombieSpawn(Tile tile)
 	{
-		zombieMoveAttack(tile);
-
+		zombieAttack();
+		zombieMove();
+		
 		randZombieSpawn = new Random();
 		int zNum = randZombieSpawn.nextInt(7);
 		if (zNum > 5)
@@ -193,50 +194,103 @@ public class Javapocalypse implements ActionListener
 			Javapocalypse.updateBoardLocations();
 		}
 		turnCycle();
+		
 		return;
 	}
 
-	public static void zombieMoveAttack(Tile tile)
+	public static void zombieAttack()
 	{
-		if (tile.hasPlayer1())
-		{
-			if (tile.hasZombie1())
+		for(Tile tile : gameBoard.tiles) {
+				
+			if (tile.hasPlayer1())
 			{
-				player1.setHealth(player1.getHealth() - 1);
-				updateStuffBtnPress(player1);
-
-				if (tile.hasZombie2())
+				if (tile.hasZombie1())
 				{
 					player1.setHealth(player1.getHealth() - 1);
 					updateStuffBtnPress(player1);
+	
+					if (tile.hasZombie2())
+					{
+						player1.setHealth(player1.getHealth() - 1);
+						updateStuffBtnPress(player1);
+					}
+	
 				}
-
 			}
-		}
-
-		if (tile.hasPlayer2())
-		{
-			if (tile.hasZombie1())
+	
+			if (tile.hasPlayer2())
 			{
-				player2.setHealth(player2.getHealth() - 1);
-				updateStuffBtnPress(player2);
-
-				if (tile.hasZombie2())
+				if (tile.hasZombie1())
 				{
 					player2.setHealth(player2.getHealth() - 1);
 					updateStuffBtnPress(player2);
+	
+					if (tile.hasZombie2())
+					{
+						player2.setHealth(player2.getHealth() - 1);
+						updateStuffBtnPress(player2);
+					}
+	
 				}
-
 			}
-		}
-
-		if ((tile.hasZombie1() || tile.hasZombie2()) && !(tile.hasPlayer1() || tile.hasPlayer2()))
-		{
-			System.out.println("MOVE");
 		}
 
 	}
 
+	
+	public static void zombieMove() 
+	{
+		
+		int randomMove = randDirection.nextInt(4);
+		
+		for(Tile tile : gameBoard.tiles) {
+			switch(randomMove) {
+			case 0 : //Move Zombie North
+				if(tile.hasZombie1() && !tile.hasNorthWall()) {
+					tile.setHasZombie1(false);
+					for(Tile newTile : gameBoard.tiles) {
+						if(newTile.getTileLocation()==tile.getTileLocation()-5) {
+							newTile.setHasZombie1(true);
+						}
+					}		
+				}
+				break;
+			case 1 :
+				if(tile.hasZombie1() && !tile.hasSouthWall()) {
+					tile.setHasZombie1(false);
+					for(Tile newTile : gameBoard.tiles) {
+						if(newTile.getTileLocation()==tile.getTileLocation()+5) {
+							newTile.setHasZombie1(true);
+						}
+					}		
+				}
+				break;
+			case 2 :
+				if(tile.hasZombie1() && !tile.hasWestWall()) {
+					tile.setHasZombie1(false);
+					for(Tile newTile : gameBoard.tiles) {
+						if(newTile.getTileLocation()==tile.getTileLocation()-1) {
+							newTile.setHasZombie1(true);
+						}
+					}		
+				}
+				break;
+			case 3 :
+				if(tile.hasZombie1() && !tile.hasEastWall()) {
+					tile.setHasZombie1(false);
+					for(Tile newTile : gameBoard.tiles) {
+						if(newTile.getTileLocation()==tile.getTileLocation()+1) {
+							newTile.setHasZombie1(true);
+						}
+					}		
+				}
+				break;
+			
+			}
+		}
+		
+	}
+	
 	/**
 	 * Updates the locations of the players on the board.
 	 */
@@ -322,6 +376,8 @@ class UpBtnListener implements ActionListener
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+
 				}
 			}
 		}
@@ -382,6 +438,8 @@ class DownBtnListener implements ActionListener
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+
 				}
 			}
 		}
@@ -443,6 +501,8 @@ class LeftBtnListener implements ActionListener
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+
 				}
 
 			}
@@ -506,6 +566,8 @@ class RightBtnListener implements ActionListener
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+
 				}
 			}
 		}

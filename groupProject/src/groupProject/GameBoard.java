@@ -470,6 +470,7 @@ public class GameBoard implements ActionListener
 		tile6.setHasSouthWall(true);
 		tile6.centralPanel.setBackground(Color.DARK_GRAY);
 
+		tile6.setHasEastDoor(true);
 		tile6.northPanel.setVisible(false);
 		buttonsBoard.add(tile6);
 
@@ -745,7 +746,7 @@ public class GameBoard implements ActionListener
 		tile25.setHasWestWall(true);
 		tile25.eastPanel.setBackground(Color.LIGHT_GRAY);
 		tile25.setHasEastWall(true);
-		tile25.southPanel.setBackground(Color.LIGHT_GRAY);
+		tile25.southPanel.setBackground(Color.RED);
 		tile25.setHasSouthWall(true);
 		tile25.centralPanel.setBackground(Color.LIGHT_GRAY);
 		buttonsBoard.add(tile25);
