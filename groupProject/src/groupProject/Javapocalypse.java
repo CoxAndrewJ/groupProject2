@@ -164,9 +164,13 @@ public class Javapocalypse implements ActionListener
 			tile.setHasZombie1(true);
 			Javapocalypse.updateBoardLocations();
 		}
-		System.out.println(zNum);
 		turnCycle();
 		return;
+	}
+
+	public static void zombieMoveAttack(Tile tile)
+	{
+
 	}
 
 	/**
