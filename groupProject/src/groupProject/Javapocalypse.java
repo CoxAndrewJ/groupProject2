@@ -403,6 +403,23 @@ class DownBtnListener implements ActionListener
 				}
 			}
 		}
+		
+		if (Javapocalypse.gameBoard.getNumbersPressedArr()[1] == true)
+		{
+			if (Javapocalypse.player1.getActions() > 0
+					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasSouthDoor())
+			{
+				Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() + 5);
+				Javapocalypse.updateStuffBtnPress(Javapocalypse.player1);
+			} else if (Javapocalypse.player2.getActions() > 0
+					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasSouthDoor())
+			{
+				Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() + 5);
+				Javapocalypse.updateStuffBtnPress(Javapocalypse.player2);
+
+			}
+
+		}
 	}
 }
 
@@ -448,6 +465,23 @@ class LeftBtnListener implements ActionListener
 
 			}
 		}
+		
+		if (Javapocalypse.gameBoard.getNumbersPressedArr()[1] == true)
+		{
+			if (Javapocalypse.player1.getActions() > 0
+					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasWestDoor())
+			{
+				Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() - 1);
+				Javapocalypse.updateStuffBtnPress(Javapocalypse.player1);
+			} else if (Javapocalypse.player2.getActions() > 0
+					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasWestDoor())
+			{
+				Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() -1);
+				Javapocalypse.updateStuffBtnPress(Javapocalypse.player2);
+
+			}
+
+		}
 	}
 }
 
@@ -492,6 +526,23 @@ class RightBtnListener implements ActionListener
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
 				}
 			}
+		}
+		
+		if (Javapocalypse.gameBoard.getNumbersPressedArr()[1] == true)
+		{
+			if (Javapocalypse.player1.getActions() > 0
+					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasEastDoor())
+			{
+				Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() +1);
+				Javapocalypse.updateStuffBtnPress(Javapocalypse.player1);
+			} else if (Javapocalypse.player2.getActions() > 0
+					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasEastDoor())
+			{
+				Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() +1);
+				Javapocalypse.updateStuffBtnPress(Javapocalypse.player2);
+
+			}
+
 		}
 	}
 }
