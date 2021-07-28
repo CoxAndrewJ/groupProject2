@@ -158,6 +158,12 @@ public class Tile extends JPanel
 
 	public void setHasZombie1(boolean hasZombie1)
 	{
+		if (hasZombie1 == true) {
+			zombie1Label.setVisible(true);
+		}
+		if (hasZombie1 == false) {
+			zombie1Label.setVisible(false);
+		}
 		this.hasZombie1 = hasZombie1;
 	}
 
@@ -168,6 +174,12 @@ public class Tile extends JPanel
 
 	public void setHasZombie2(boolean hasZombie2)
 	{
+		if (hasZombie2 == true) {
+			zombie2Label.setVisible(true);
+		}
+		if (hasZombie2 == false) {
+			zombie2Label.setVisible(false);
+		}
 		this.hasZombie2 = hasZombie2;
 	}
 

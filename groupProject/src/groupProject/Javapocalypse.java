@@ -99,10 +99,9 @@ public class Javapocalypse implements ActionListener
 		// Create a new gameBoard using the above code as parameters(in a way)
 		gameBoard = new GameBoard();
 
-		startGame();
+		updateBoardLocations();
 		do
 		{
-
 			turnCycle();
 			turn++;
 		} while (turn < 50); // just trying to get this to work, don't need to keep this max turn limit of 50
@@ -144,14 +143,14 @@ public class Javapocalypse implements ActionListener
 	 * 
 	 * @param tile the tile to spawn the zombies in
 	 */
-	private static void zombieSpawn(Tile tile)
+	public static void zombieSpawn(Tile tile)
 	{
 		Random rand = new Random();
 		int zNum = rand.nextInt(7);
 		if (zNum > 5)
 		{
-			tile.hasZombie1();
-			tile.hasZombie2();
+			tile.setHasZombie1(true);
+			tile.setHasZombie2(true);
 			Javapocalypse.updateBoardLocations();
 
 		} else if (zNum < 3)
@@ -164,15 +163,6 @@ public class Javapocalypse implements ActionListener
 		}
 		turnCycle();
 		return;
-	}
-
-	/**
-	 * Starts the game
-	 */
-	public static void startGame()
-	{
-		objectivesObtained = 0;
-		updateBoardLocations();
 	}
 
 	/**
@@ -199,6 +189,12 @@ public class Javapocalypse implements ActionListener
 			{
 				tile.setHasPlayer2(false);
 			}
+			
+			//Update the Zombie positions
+			if(tile.hasZombie1()) {
+				
+			}
+		
 		}
 	}
 
@@ -247,6 +243,8 @@ class UpBtnListener implements ActionListener
 			Javapocalypse.player2.subtractAction();
 			Javapocalypse.updateBoardLocations();
 
+		} else {
+			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
 		}
 	}
 }
@@ -284,6 +282,8 @@ class DownBtnListener implements ActionListener
 			Javapocalypse.player2.subtractAction();
 			Javapocalypse.updateBoardLocations();
 
+		} else {
+			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
 		}
 	}
 }
@@ -322,6 +322,8 @@ class LeftBtnListener implements ActionListener
 			Javapocalypse.player2.subtractAction();
 			Javapocalypse.updateBoardLocations();
 
+		} else {
+			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
 		}
 	}
 }
@@ -360,6 +362,8 @@ class RightBtnListener implements ActionListener
 			Javapocalypse.player2.subtractAction();
 			Javapocalypse.updateBoardLocations();
 
+		} else {
+			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
 		}
 
 	}
