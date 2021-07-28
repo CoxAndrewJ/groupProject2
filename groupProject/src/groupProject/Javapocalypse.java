@@ -147,6 +147,7 @@ public class Javapocalypse implements ActionListener
 				tile.setHasPlayer2(false);
 			}
 			player2.setDeadActions();
+			player1.resetActions();
 
 		}
 		if (player1.getHealth() < 1 && player2.getHealth() < 1)
