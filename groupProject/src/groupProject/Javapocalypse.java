@@ -246,11 +246,13 @@ class UpBtnListener implements ActionListener
 			Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() - 5);
 			Javapocalypse.updateStuffBtnPress(Javapocalypse.player2);
 
-		} else
-		{
-			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+			if (Javapocalypse.player2.getActions() == 0)
+			{
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+			}
+
 		}
 	}
 }
@@ -286,11 +288,12 @@ class DownBtnListener implements ActionListener
 			Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() + 5);
 			Javapocalypse.updateStuffBtnPress(Javapocalypse.player2);
 
-		} else
-		{
-			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+			if (Javapocalypse.player2.getActions() == 0)
+			{
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+			}
 		}
 	}
 }
@@ -326,11 +329,12 @@ class LeftBtnListener implements ActionListener
 			Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() - 1);
 			Javapocalypse.updateStuffBtnPress(Javapocalypse.player2);
 
-		} else
-		{
-			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+			if (Javapocalypse.player2.getActions() == 0)
+			{
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+			}
 		}
 	}
 }
@@ -366,11 +370,12 @@ class RightBtnListener implements ActionListener
 			Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() + 1);
 			Javapocalypse.updateStuffBtnPress(Javapocalypse.player2);
 
-		} else
-		{
-			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-			Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+			if (Javapocalypse.player2.getActions() == 0)
+			{
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+			}
 		}
 
 	}
