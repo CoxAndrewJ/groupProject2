@@ -435,14 +435,13 @@ class UpBtnListener implements ActionListener
 
 		if (Javapocalypse.gameBoard.getNumbersPressedArr()[2] == true)
 		{
-			if (Javapocalypse.player1.getActions() > 0
-					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasNorthDoor())
+			if (Javapocalypse.player1.getActions() > 0)
 			{
+				int target = Javapocalypse.player1.getLocation() - 5;
 				Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() - 5);
 				Javapocalypse.updateStuffBtnPress(Javapocalypse.player1);
 
-			} else if (Javapocalypse.player2.getActions() > 0
-					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasNorthDoor())
+			} else if (Javapocalypse.player2.getActions() > 0)
 			{
 				Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() - 5);
 				Javapocalypse.updateStuffBtnPress(Javapocalypse.player2);
