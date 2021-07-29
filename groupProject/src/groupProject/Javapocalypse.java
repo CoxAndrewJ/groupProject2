@@ -24,7 +24,7 @@ public class Javapocalypse implements ActionListener
 
 	static Random randZombieSpawn = new Random();
 	static Random randDirection = new Random();
-	
+
 	Dice die = new Dice();
 
 	// the following 3 methods are used to dispose of the frame and instantiate the
@@ -110,8 +110,6 @@ public class Javapocalypse implements ActionListener
 
 	}
 
-	
-	
 	/**
 	 * Updates the action count, player image, action label, and whatever else we
 	 * need to update
@@ -163,7 +161,7 @@ public class Javapocalypse implements ActionListener
 		{
 			// TODO victory
 		}
-		// TODO if players health is set to 0, set their actions to 0 too
+
 		return;
 	}
 
@@ -176,7 +174,7 @@ public class Javapocalypse implements ActionListener
 	{
 		zombieAttack();
 		zombieMove();
-		
+
 		randZombieSpawn = new Random();
 		int zNum = randZombieSpawn.nextInt(7);
 		if (zNum > 5)
@@ -193,53 +191,67 @@ public class Javapocalypse implements ActionListener
 			tile.setHasZombie1(true);
 			Javapocalypse.updateBoardLocations();
 		}
+		if (player1.getHealth() > 0)
+		{
+			GameBoard.currentPlayerImage.setIcon(player1.getImage());
+			GameBoard.actionsLbl.setText("Actions: " + player1.getActions());
+			Javapocalypse.updateBoardLocations();
+			GameBoard.healthLbl.setText("Health: " + player1.getHealth());
+		} else
+		{
+			GameBoard.currentPlayerImage.setIcon(player2.getImage());
+			GameBoard.actionsLbl.setText("Actions: " + player2.getActions());
+			Javapocalypse.updateBoardLocations();
+			GameBoard.healthLbl.setText("Health: " + player2.getHealth());
+		}
 		turnCycle();
-		
+
 		return;
 	}
 
 	public static void zombieAttack()
 	{
-		for(Tile tile : gameBoard.tiles) {
-				
+		for (Tile tile : gameBoard.tiles)
+		{
+
 			if (tile.hasPlayer1())
 			{
 				if (tile.hasZombie1())
 				{
 					player1.setHealth(player1.getHealth() - 1);
 					updateStuffBtnPress(player1);
-	
+
 					if (tile.hasZombie2())
 					{
 						player1.setHealth(player1.getHealth() - 1);
 						updateStuffBtnPress(player1);
 					}
-	
+
 				}
 			}
-	
+
 			if (tile.hasPlayer2())
 			{
 				if (tile.hasZombie1())
 				{
 					player2.setHealth(player2.getHealth() - 1);
 					updateStuffBtnPress(player2);
-	
+
 					if (tile.hasZombie2())
 					{
 						player2.setHealth(player2.getHealth() - 1);
 						updateStuffBtnPress(player2);
 					}
-	
+
 				}
 			}
 		}
 
 	}
 
-	
-	public static void zombieMove() 
+	public static void zombieMove()
 	{
+<<<<<<< HEAD
 		int randomMove = randDirection.nextInt(4);
 		
 		
@@ -288,10 +300,73 @@ public class Javapocalypse implements ActionListener
 					}
 				}
 					break;
+=======
+
+		int randomMove = randDirection.nextInt(4);
+
+		for (Tile tile : gameBoard.tiles)
+		{
+			switch (randomMove)
+			{
+			case 0: // Move Zombie North
+				if (tile.hasZombie1() && !tile.hasNorthWall())
+				{
+					tile.setHasZombie1(false);
+					for (Tile newTile : gameBoard.tiles)
+					{
+						if (newTile.getTileLocation() == tile.getTileLocation() - 5)
+						{
+							newTile.setHasZombie1(true);
+						}
+					}
+				}
+				break;
+			case 1:
+				if (tile.hasZombie1() && !tile.hasSouthWall())
+				{
+					tile.setHasZombie1(false);
+					for (Tile newTile : gameBoard.tiles)
+					{
+						if (newTile.getTileLocation() == tile.getTileLocation() + 5)
+						{
+							newTile.setHasZombie1(true);
+						}
+					}
+				}
+				break;
+			case 2:
+				if (tile.hasZombie1() && !tile.hasWestWall())
+				{
+					tile.setHasZombie1(false);
+					for (Tile newTile : gameBoard.tiles)
+					{
+						if (newTile.getTileLocation() == tile.getTileLocation() - 1)
+						{
+							newTile.setHasZombie1(true);
+						}
+					}
+				}
+				break;
+			case 3:
+				if (tile.hasZombie1() && !tile.hasEastWall())
+				{
+					tile.setHasZombie1(false);
+					for (Tile newTile : gameBoard.tiles)
+					{
+						if (newTile.getTileLocation() == tile.getTileLocation() + 1)
+						{
+							newTile.setHasZombie1(true);
+						}
+					}
+				}
+				break;
+
+			}
+>>>>>>> 9164fa0c6012b404a4cc9e437ff01e06dc98d35f
 		}
-		
+
 	}
-	
+
 	/**
 	 * Updates the locations of the players on the board.
 	 */
@@ -366,6 +441,15 @@ class UpBtnListener implements ActionListener
 				Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() - 5);
 				Javapocalypse.updateStuffBtnPress(Javapocalypse.player1);
 
+				if (Javapocalypse.player2.getHealth() < 0)
+				{
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+
+				}
+
 			} else if (Javapocalypse.player2.getActions() > 0
 					&& !Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasNorthWall())
 			{
@@ -377,7 +461,7 @@ class UpBtnListener implements ActionListener
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
 
 				}
 			}
@@ -389,6 +473,25 @@ class UpBtnListener implements ActionListener
 			{
 				Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() - 5);
 				Javapocalypse.updateStuffBtnPress(Javapocalypse.player1);
+
+			} else if (Javapocalypse.player2.getActions() > 0
+					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasNorthDoor())
+			{
+				Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() - 5);
+				Javapocalypse.updateStuffBtnPress(Javapocalypse.player2);
+
+			}
+
+		}
+
+		if (Javapocalypse.gameBoard.getNumbersPressedArr()[2] == true)
+		{
+			if (Javapocalypse.player1.getActions() > 0
+					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasNorthDoor())
+			{
+				Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() - 5);
+				Javapocalypse.updateStuffBtnPress(Javapocalypse.player1);
+
 			} else if (Javapocalypse.player2.getActions() > 0
 					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasNorthDoor())
 			{
@@ -434,6 +537,15 @@ class DownBtnListener implements ActionListener
 				Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() + 5);
 				Javapocalypse.updateStuffBtnPress(Javapocalypse.player1);
 
+				if (Javapocalypse.player2.getHealth() < 0)
+				{
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+
+				}
+
 			} else if (Javapocalypse.player2.getActions() > 0
 					&& !Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasSouthWall())
 			{
@@ -445,12 +557,12 @@ class DownBtnListener implements ActionListener
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
 
 				}
 			}
 		}
-		
+
 		if (Javapocalypse.gameBoard.getNumbersPressedArr()[1] == true)
 		{
 			if (Javapocalypse.player1.getActions() > 0
@@ -458,6 +570,7 @@ class DownBtnListener implements ActionListener
 			{
 				Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() + 5);
 				Javapocalypse.updateStuffBtnPress(Javapocalypse.player1);
+
 			} else if (Javapocalypse.player2.getActions() > 0
 					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasSouthDoor())
 			{
@@ -503,6 +616,15 @@ class LeftBtnListener implements ActionListener
 				Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() - 1);
 				Javapocalypse.updateStuffBtnPress(Javapocalypse.player1);
 
+				if (Javapocalypse.player2.getHealth() < 0)
+				{
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+
+				}
+
 			} else if (Javapocalypse.player2.getActions() > 0
 					&& !Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasWestWall())
 			{
@@ -514,13 +636,13 @@ class LeftBtnListener implements ActionListener
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
 
 				}
 
 			}
 		}
-		
+
 		if (Javapocalypse.gameBoard.getNumbersPressedArr()[1] == true)
 		{
 			if (Javapocalypse.player1.getActions() > 0
@@ -528,10 +650,11 @@ class LeftBtnListener implements ActionListener
 			{
 				Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() - 1);
 				Javapocalypse.updateStuffBtnPress(Javapocalypse.player1);
+
 			} else if (Javapocalypse.player2.getActions() > 0
 					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasWestDoor())
 			{
-				Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() -1);
+				Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() - 1);
 				Javapocalypse.updateStuffBtnPress(Javapocalypse.player2);
 
 			}else {
@@ -573,6 +696,14 @@ class RightBtnListener implements ActionListener
 			{
 				Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() + 1);
 				Javapocalypse.updateStuffBtnPress(Javapocalypse.player1);
+				if (Javapocalypse.player2.getHealth() < 0)
+				{
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+
+				}
 
 			} else if (Javapocalypse.player2.getActions() > 0
 					&& !Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasEastWall())
@@ -590,18 +721,18 @@ class RightBtnListener implements ActionListener
 				}
 			}
 		}
-		
+
 		if (Javapocalypse.gameBoard.getNumbersPressedArr()[1] == true)
 		{
 			if (Javapocalypse.player1.getActions() > 0
 					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation()).hasEastDoor())
 			{
-				Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() +1);
+				Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() + 1);
 				Javapocalypse.updateStuffBtnPress(Javapocalypse.player1);
 			} else if (Javapocalypse.player2.getActions() > 0
 					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasEastDoor())
 			{
-				Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() +1);
+				Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() + 1);
 				Javapocalypse.updateStuffBtnPress(Javapocalypse.player2);
 
 			} else {
