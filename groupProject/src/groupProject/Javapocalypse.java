@@ -251,7 +251,6 @@ public class Javapocalypse implements ActionListener
 
 	public static void zombieMove()
 	{
-<<<<<<< HEAD
 		int randomMove = randDirection.nextInt(4);
 		
 		
@@ -299,71 +298,7 @@ public class Javapocalypse implements ActionListener
 						}
 					}
 				}
-					break;
-=======
-
-		int randomMove = randDirection.nextInt(4);
-
-		for (Tile tile : gameBoard.tiles)
-		{
-			switch (randomMove)
-			{
-			case 0: // Move Zombie North
-				if (tile.hasZombie1() && !tile.hasNorthWall())
-				{
-					tile.setHasZombie1(false);
-					for (Tile newTile : gameBoard.tiles)
-					{
-						if (newTile.getTileLocation() == tile.getTileLocation() - 5)
-						{
-							newTile.setHasZombie1(true);
-						}
-					}
-				}
-				break;
-			case 1:
-				if (tile.hasZombie1() && !tile.hasSouthWall())
-				{
-					tile.setHasZombie1(false);
-					for (Tile newTile : gameBoard.tiles)
-					{
-						if (newTile.getTileLocation() == tile.getTileLocation() + 5)
-						{
-							newTile.setHasZombie1(true);
-						}
-					}
-				}
-				break;
-			case 2:
-				if (tile.hasZombie1() && !tile.hasWestWall())
-				{
-					tile.setHasZombie1(false);
-					for (Tile newTile : gameBoard.tiles)
-					{
-						if (newTile.getTileLocation() == tile.getTileLocation() - 1)
-						{
-							newTile.setHasZombie1(true);
-						}
-					}
-				}
-				break;
-			case 3:
-				if (tile.hasZombie1() && !tile.hasEastWall())
-				{
-					tile.setHasZombie1(false);
-					for (Tile newTile : gameBoard.tiles)
-					{
-						if (newTile.getTileLocation() == tile.getTileLocation() + 1)
-						{
-							newTile.setHasZombie1(true);
-						}
-					}
-				}
-				break;
-
 			}
->>>>>>> 9164fa0c6012b404a4cc9e437ff01e06dc98d35f
-		}
 
 	}
 
