@@ -420,7 +420,7 @@ public class Javapocalypse implements ActionListener
 }
 
 /**
- * Moves the player up one tile on the game board if allowed.
+ * Up action is performed
  * 
  * @author Andrew and Cody
  *
@@ -581,7 +581,7 @@ class UpBtnListener implements ActionListener
 }
 
 /**
- * Moves the player down one tile on the game board if allowed.
+ * Down action is performed
  * 
  * @author Andrew and Cody
  *
@@ -747,7 +747,7 @@ class DownBtnListener implements ActionListener
 }
 
 /**
- * Moves the player left one tile on the game board if allowed.
+ * Left action is performed
  * 
  * @author Andrew and Cody
  *
@@ -913,7 +913,7 @@ class LeftBtnListener implements ActionListener
 }
 
 /**
- * Moves the player right one tile on the game board if allowed.
+ * Right action is performed
  * 
  * @author Andrew and Cody
  *
