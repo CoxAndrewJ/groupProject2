@@ -27,8 +27,6 @@ public class Javapocalypse implements ActionListener
 	static Random randZombieSpawn = new Random();
 	static Random randDirection = new Random();
 
-	Dice die = new Dice();
-
 	// the following 3 methods are used to dispose of the frame and instantiate the
 	// gameboard
 	public static Javapocalypse getInstance()
@@ -288,7 +286,7 @@ public class Javapocalypse implements ActionListener
 						break;
 					}
 				}
-				
+
 				if (tile.hasZombie2() && !tile.hasNorthWall())
 				{
 					if (!gameBoard.tiles.get(tile.getTileLocation() - 5).hasZombie2())
