@@ -480,8 +480,15 @@ class UpBtnListener implements ActionListener
 		{
 			Tile target1 = Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation() - 5);
 			Tile target2 = Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation() - 5);
+			Tile sameTile1 = Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation());
+			Tile sameTile2 = Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation());
+
 			if (Javapocalypse.player1.getActions() > 0)
 			{
+				if (sameTile1.hasZombie1() || sameTile1.hasZombie2())
+				{
+					target1 = sameTile1;
+				}
 				if (target1.hasZombie2())
 				{
 					target1.setHasZombie2(false);
@@ -500,6 +507,10 @@ class UpBtnListener implements ActionListener
 				}
 			} else if (Javapocalypse.player2.getActions() > 0)
 			{
+				if (sameTile2.hasZombie1() || sameTile2.hasZombie2())
+				{
+					target2 = sameTile2;
+				}
 				if (target2.hasZombie2())
 				{
 					target2.setHasZombie2(false);
@@ -641,9 +652,15 @@ class DownBtnListener implements ActionListener
 		{
 			Tile target = Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation() + 5);
 			Tile target2 = Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation() + 5);
+			Tile sameTile1 = Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation());
+			Tile sameTile2 = Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation());
 
 			if (Javapocalypse.player1.getActions() > 0)
 			{
+				if (sameTile1.hasZombie1() || sameTile1.hasZombie2())
+				{
+					target = sameTile1;
+				}
 				if (target.hasZombie2())
 				{
 					target.setHasZombie2(false);
@@ -662,6 +679,10 @@ class DownBtnListener implements ActionListener
 				}
 			} else if (Javapocalypse.player2.getActions() > 0)
 			{
+				if (sameTile2.hasZombie1() || sameTile2.hasZombie2())
+				{
+					target2 = sameTile2;
+				}
 				if (target2.hasZombie2())
 				{
 					target2.setHasZombie2(false);
@@ -797,9 +818,15 @@ class LeftBtnListener implements ActionListener
 		{
 			Tile target = Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation() - 1);
 			Tile target2 = Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation() - 1);
+			Tile sameTile1 = Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation());
+			Tile sameTile2 = Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation());
 
 			if (Javapocalypse.player1.getActions() > 0)
 			{
+				if (sameTile1.hasZombie1() || sameTile1.hasZombie2())
+				{
+					target = sameTile1;
+				}
 				if (target.hasZombie2())
 				{
 					target.setHasZombie2(false);
@@ -818,6 +845,10 @@ class LeftBtnListener implements ActionListener
 				}
 			} else if (Javapocalypse.player2.getActions() > 0)
 			{
+				if (sameTile2.hasZombie1() || sameTile2.hasZombie2())
+				{
+					target2 = sameTile2;
+				}
 				if (target2.hasZombie2())
 				{
 					target2.setHasZombie2(false);
@@ -954,9 +985,15 @@ class RightBtnListener implements ActionListener
 		{
 			Tile target = Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation() + 1);
 			Tile target2 = Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation() + 1);
+			Tile sameTile1 = Javapocalypse.gameBoard.tiles.get(Javapocalypse.player1.getLocation());
+			Tile sameTile2 = Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation());
 
 			if (Javapocalypse.player1.getActions() > 0)
 			{
+				if (sameTile1.hasZombie1() || sameTile1.hasZombie2())
+				{
+					target = sameTile1;
+				}
 				if (target.hasZombie2())
 				{
 					target.setHasZombie2(false);
@@ -975,6 +1012,10 @@ class RightBtnListener implements ActionListener
 				}
 			} else if (Javapocalypse.player2.getActions() > 0)
 			{
+				if (sameTile2.hasZombie1() || sameTile2.hasZombie2())
+				{
+					target2 = sameTile2;
+				}
 				if (target2.hasZombie2())
 				{
 					target2.setHasZombie2(false);

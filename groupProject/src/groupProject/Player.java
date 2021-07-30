@@ -5,7 +5,7 @@ import javax.swing.ImageIcon;
 public class Player
 {
 
-	private int health = 2;
+	private int health = 3;
 	private int location;
 	private Weapon weapon = Weapon.UNARMED;
 	private String name;
