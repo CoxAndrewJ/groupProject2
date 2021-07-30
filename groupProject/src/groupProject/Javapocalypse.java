@@ -288,6 +288,16 @@ public class Javapocalypse implements ActionListener
 						break;
 					}
 				}
+				
+				if (tile.hasZombie2() && !tile.hasNorthWall())
+				{
+					if (!gameBoard.tiles.get(tile.getTileLocation() - 5).hasZombie2())
+					{
+						tile.setHasZombie2(false);
+						gameBoard.tiles.get(tile.getTileLocation() - 5).setHasZombie2(true);
+						break;
+					}
+				}
 			}
 			break;
 		case 1:
@@ -299,6 +309,15 @@ public class Javapocalypse implements ActionListener
 					{
 						tile.setHasZombie1(false);
 						gameBoard.tiles.get(tile.getTileLocation() + 5).setHasZombie1(true);
+						break;
+					}
+				}
+				if (tile.hasZombie2() && !tile.hasSouthWall())
+				{
+					if (!gameBoard.tiles.get(tile.getTileLocation() + 5).hasZombie2())
+					{
+						tile.setHasZombie2(false);
+						gameBoard.tiles.get(tile.getTileLocation() + 5).setHasZombie2(true);
 						break;
 					}
 				}
@@ -316,6 +335,15 @@ public class Javapocalypse implements ActionListener
 						break;
 					}
 				}
+				if (tile.hasZombie2() && !tile.hasEastWall())
+				{
+					if (!gameBoard.tiles.get(tile.getTileLocation() - 1).hasZombie2())
+					{
+						tile.setHasZombie2(false);
+						gameBoard.tiles.get(tile.getTileLocation() - 1).setHasZombie2(true);
+						break;
+					}
+				}
 			}
 			break;
 		case 3:
@@ -327,6 +355,15 @@ public class Javapocalypse implements ActionListener
 					{
 						tile.setHasZombie1(false);
 						gameBoard.tiles.get(tile.getTileLocation() + 1).setHasZombie1(true);
+						break;
+					}
+				}
+				if (tile.hasZombie2() && !tile.hasWestWall())
+				{
+					if (!gameBoard.tiles.get(tile.getTileLocation() + 1).hasZombie2())
+					{
+						tile.setHasZombie2(false);
+						gameBoard.tiles.get(tile.getTileLocation() + 1).setHasZombie2(true);
 						break;
 					}
 				}
