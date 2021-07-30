@@ -221,21 +221,21 @@ public class GameBoard implements ActionListener
 		});
 
 		JButton upBtn = new JButton("^");
-		upBtn.addActionListener(UpBtnListener.getListener());
+		upBtn.addActionListener(new BtnActionListener(-5));
 		upBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
 
 		JLabel blankLbl = new JLabel();
 
 		JButton leftBtn = new JButton("<");
-		leftBtn.addActionListener(LeftBtnListener.getListener());
+		leftBtn.addActionListener(new BtnActionListener(-1));
 		leftBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
 
 		JButton downBtn = new JButton("v");
-		downBtn.addActionListener(DownBtnListener.getListener());
+		downBtn.addActionListener(new BtnActionListener(5));
 		downBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
 
 		JButton rightBtn = new JButton(">");
-		rightBtn.addActionListener(RightBtnListener.getListener());
+		rightBtn.addActionListener(new BtnActionListener(1));
 		rightBtn.setFont(new Font("Tahoma", Font.PLAIN, 50));
 
 		directionPanel.add(backBtn);
