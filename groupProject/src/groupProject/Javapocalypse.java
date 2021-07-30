@@ -3,6 +3,9 @@ package groupProject;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -192,36 +195,42 @@ public class Javapocalypse implements ActionListener
 	 * 
 	 * @param tile the tile to spawn the zombies in
 	 */
-	public static void zombieSpawn(Tile tile)
+	public static void zombieSpawn(Tile tile1, Tile tile2, Tile tile3, Tile tile4)
 	{
 		zombieAttack();
 		zombieMove();
 
-		randZombieSpawn = new Random();
-		int zNum = randZombieSpawn.nextInt(7);
-		if (zNum > 4)
-		{
-			tile.setHasZombie1(true);
-			tile.setHasZombie2(true);
-			Javapocalypse.updateBoardLocations();
+		List<Tile> spawns = new ArrayList<>();
+		Collections.addAll(spawns, tile1, tile2, tile3, tile4);
 
-		} else
+		for (Tile tile : spawns)
 		{
-			tile.setHasZombie1(true);
-			Javapocalypse.updateBoardLocations();
-		}
-		if (player1.getHealth() > 0)
-		{
-			GameBoard.currentPlayerImage.setIcon(player1.getImage());
-			GameBoard.actionsLbl.setText("Actions: " + player1.getActions());
-			Javapocalypse.updateBoardLocations();
-			GameBoard.healthLbl.setText("Health: " + player1.getHealth());
-		} else
-		{
-			GameBoard.currentPlayerImage.setIcon(player2.getImage());
-			GameBoard.actionsLbl.setText("Actions: " + player2.getActions());
-			Javapocalypse.updateBoardLocations();
-			GameBoard.healthLbl.setText("Health: " + player2.getHealth());
+			randZombieSpawn = new Random();
+			int zNum = randZombieSpawn.nextInt(7);
+			if (zNum > 4)
+			{
+				tile.setHasZombie1(true);
+				tile.setHasZombie2(true);
+				Javapocalypse.updateBoardLocations();
+
+			} else
+			{
+				tile.setHasZombie1(true);
+				Javapocalypse.updateBoardLocations();
+			}
+			if (player1.getHealth() > 0)
+			{
+				GameBoard.currentPlayerImage.setIcon(player1.getImage());
+				GameBoard.actionsLbl.setText("Actions: " + player1.getActions());
+				Javapocalypse.updateBoardLocations();
+				GameBoard.healthLbl.setText("Health: " + player1.getHealth());
+			} else
+			{
+				GameBoard.currentPlayerImage.setIcon(player2.getImage());
+				GameBoard.actionsLbl.setText("Actions: " + player2.getActions());
+				Javapocalypse.updateBoardLocations();
+				GameBoard.healthLbl.setText("Health: " + player2.getHealth());
+			}
 		}
 		turnCycle();
 
@@ -453,11 +462,8 @@ class UpBtnListener implements ActionListener
 				}
 				if (Javapocalypse.player2.getHealth() < 0)
 				{
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
-
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 				}
 
 			} else if (Javapocalypse.player2.getActions() > 0
@@ -468,10 +474,8 @@ class UpBtnListener implements ActionListener
 
 				if (Javapocalypse.player2.getActions() < 1)
 				{
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 				}
 			}
@@ -500,10 +504,8 @@ class UpBtnListener implements ActionListener
 
 				if (Javapocalypse.player2.getActions() < 1)
 				{
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 				}
 			}
@@ -557,18 +559,14 @@ class UpBtnListener implements ActionListener
 
 				if (Javapocalypse.player2.getActions() < 1)
 				{
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 				}
 			} else
 			{
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+						Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 			}
 
@@ -619,10 +617,8 @@ class DownBtnListener implements ActionListener
 
 				if (Javapocalypse.player2.getHealth() < 0)
 				{
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 				}
 
@@ -634,10 +630,8 @@ class DownBtnListener implements ActionListener
 
 				if (Javapocalypse.player2.getActions() < 1)
 				{
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 				}
 			}
@@ -666,18 +660,14 @@ class DownBtnListener implements ActionListener
 
 				if (Javapocalypse.player2.getActions() < 1)
 				{
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 				}
 			} else
 			{
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+						Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 			}
 		}
@@ -729,18 +719,14 @@ class DownBtnListener implements ActionListener
 
 				if (Javapocalypse.player2.getActions() < 1)
 				{
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 				}
 			} else
 			{
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+						Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 			}
 
@@ -784,10 +770,8 @@ class LeftBtnListener implements ActionListener
 				}
 				if (Javapocalypse.player2.getHealth() < 0)
 				{
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 				}
 
@@ -799,10 +783,8 @@ class LeftBtnListener implements ActionListener
 
 				if (Javapocalypse.player2.getActions() < 1)
 				{
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 				}
 			}
@@ -831,18 +813,14 @@ class LeftBtnListener implements ActionListener
 
 				if (Javapocalypse.player2.getActions() < 1)
 				{
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 				}
 			} else
 			{
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+						Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 			}
 
@@ -895,18 +873,14 @@ class LeftBtnListener implements ActionListener
 
 				if (Javapocalypse.player2.getActions() < 1)
 				{
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 				}
 			} else
 			{
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+						Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 			}
 
@@ -951,10 +925,8 @@ class RightBtnListener implements ActionListener
 				}
 				if (Javapocalypse.player2.getHealth() < 0)
 				{
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 				}
 
@@ -966,10 +938,8 @@ class RightBtnListener implements ActionListener
 
 				if (Javapocalypse.player2.getActions() < 1)
 				{
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 				}
 			}
@@ -998,18 +968,14 @@ class RightBtnListener implements ActionListener
 
 				if (Javapocalypse.player2.getActions() < 1)
 				{
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 				}
 			} else
 			{
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+						Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 			}
 
@@ -1062,18 +1028,14 @@ class RightBtnListener implements ActionListener
 
 				if (Javapocalypse.player2.getActions() < 1)
 				{
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 				}
 			} else
 			{
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile11);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile22);
-				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile25);
+				Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
+						Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
 
 			}
 
