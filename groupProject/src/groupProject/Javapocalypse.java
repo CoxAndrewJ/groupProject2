@@ -545,7 +545,7 @@ class BtnActionListener implements ActionListener
 				}
 
 			} else if (Javapocalypse.player2.getActions() > 0
-					&& !Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasEastWall())
+					&& !Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasSouthWall())
 			{
 				p2Move();
 			}
