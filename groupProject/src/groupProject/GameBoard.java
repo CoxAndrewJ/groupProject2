@@ -30,8 +30,8 @@ public class GameBoard implements ActionListener
 	private JPanel contentPane;
 	private JMenu file;
 
-	private JPanel gameInteractionPanel;
-	private JPanel directionPanel;
+	public static JPanel gameInteractionPanel;
+	public static JPanel directionPanel;
 	public static JLabel actionsLbl;
 	public static JLabel objectiveLbl;
 	public static JLabel currentPlayerImage;

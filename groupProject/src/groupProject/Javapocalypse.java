@@ -453,6 +453,9 @@ class UpBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 				}
 				if (Javapocalypse.player2.getHealth() < 0)
 				{
@@ -489,6 +492,9 @@ class UpBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
+
 				}
 			} else if (Javapocalypse.player2.getActions() > 0
 					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasNorthDoor())
@@ -500,6 +506,8 @@ class UpBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 
 				}
 			}
@@ -535,6 +543,8 @@ class UpBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 				}
 			} else if (Javapocalypse.player2.getActions() > 0)
 			{
@@ -555,6 +565,8 @@ class UpBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 
 				}
 			} else
@@ -601,12 +613,8 @@ class DownBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
-				}
-				if (Javapocalypse.player1.getActions() < 1)
-				{
-					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
-					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
-					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 				}
 
 				if (Javapocalypse.player2.getHealth() < 0)
@@ -626,6 +634,8 @@ class DownBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 
 				}
 			}
@@ -645,6 +655,8 @@ class DownBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 				}
 			} else if (Javapocalypse.player2.getActions() > 0
 					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasSouthDoor())
@@ -656,6 +668,8 @@ class DownBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 
 				}
 			} else
@@ -695,6 +709,8 @@ class DownBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 				}
 			} else if (Javapocalypse.player2.getActions() > 0)
 			{
@@ -715,6 +731,8 @@ class DownBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 
 				}
 			} else
@@ -761,6 +779,8 @@ class LeftBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 				}
 				if (Javapocalypse.player2.getHealth() < 0)
 				{
@@ -779,6 +799,8 @@ class LeftBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 
 				}
 			}
@@ -798,6 +820,8 @@ class LeftBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 				}
 			} else if (Javapocalypse.player2.getActions() > 0
 					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasWestDoor())
@@ -809,6 +833,8 @@ class LeftBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 
 				}
 			} else
@@ -849,6 +875,8 @@ class LeftBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 				}
 			} else if (Javapocalypse.player2.getActions() > 0)
 			{
@@ -869,6 +897,8 @@ class LeftBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 
 				}
 			} else
@@ -916,6 +946,8 @@ class RightBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 				}
 				if (Javapocalypse.player2.getHealth() < 0)
 				{
@@ -934,6 +966,8 @@ class RightBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 
 				}
 			}
@@ -953,6 +987,8 @@ class RightBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 				}
 			} else if (Javapocalypse.player2.getActions() > 0
 					&& Javapocalypse.gameBoard.tiles.get(Javapocalypse.player2.getLocation()).hasEastDoor())
@@ -964,6 +1000,8 @@ class RightBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 
 				}
 			} else
@@ -1004,6 +1042,8 @@ class RightBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 				}
 			} else if (Javapocalypse.player2.getActions() > 0)
 			{
@@ -1024,6 +1064,8 @@ class RightBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.directionPanel.setVisible(false);
+					GameBoard.gameInteractionPanel.setVisible(true);
 
 				}
 			} else
