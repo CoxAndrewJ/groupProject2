@@ -1,10 +1,12 @@
 package groupProject;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class Javapocalypse implements ActionListener
 {
@@ -121,6 +123,31 @@ public class Javapocalypse implements ActionListener
 		GameBoard.actionsLbl.setText("Actions: " + player.getActions());
 		Javapocalypse.updateBoardLocations();
 		GameBoard.healthLbl.setText("Health: " + player.getHealth());
+
+		if (player.getLocation() == 5 || player.getLocation() == 21 || player.getLocation() == 24)
+		{
+			objectivesObtained++;
+			objectivesRemaining--;
+			GameBoard.objectiveLbl.setText("Objectives: " + objectivesRemaining);
+			if (player.getLocation() == 24)
+			{
+				gameBoard.tile24.centralPanel.setBackground(Color.DARK_GRAY);
+			}
+			if (player.getLocation() == 21)
+			{
+				gameBoard.tile21.centralPanel.setBackground(Color.DARK_GRAY);
+			}
+			if (player.getLocation() == 5)
+			{
+				gameBoard.tile5.centralPanel.setBackground(Color.DARK_GRAY);
+			}
+
+			if (objectivesRemaining < 1)
+			{
+				JOptionPane.showMessageDialog(frame, "ALL OBJECTIVES COLLECTED\n     YOU WIN!");
+				System.exit(0);
+			}
+		}
 	}
 
 	/**
@@ -155,11 +182,8 @@ public class Javapocalypse implements ActionListener
 		}
 		if (player1.getHealth() < 1 && player2.getHealth() < 1)
 		{
-			System.out.println("GAMEOVER");// TODO gameover
-		}
-		if (objectivesObtained == 3)
-		{
-			// TODO victory
+			JOptionPane.showMessageDialog(frame, "YOU LOSE\n GAME OVER");
+			System.exit(0);
 		}
 
 		return;
@@ -177,15 +201,12 @@ public class Javapocalypse implements ActionListener
 
 		randZombieSpawn = new Random();
 		int zNum = randZombieSpawn.nextInt(7);
-		if (zNum > 5)
+		if (zNum > 4)
 		{
 			tile.setHasZombie1(true);
 			tile.setHasZombie2(true);
 			Javapocalypse.updateBoardLocations();
 
-		} else if (zNum < 3)
-		{
-			Javapocalypse.updateBoardLocations();
 		} else
 		{
 			tile.setHasZombie1(true);
