@@ -99,7 +99,7 @@ public class Javapocalypse implements ActionListener
 		Tile.setPlayer2Icon(player2.getImage());
 		objectivesRemaining = 3;
 
-		// Start the players off on space 25
+		// Start the players off on space 1 and 10
 		player1.setLocation(1);
 		player2.setLocation(10);
 		player1.resetActions();
