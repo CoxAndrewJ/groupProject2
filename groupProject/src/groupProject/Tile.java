@@ -272,4 +272,8 @@ public class Tile extends JPanel
 	{
 		this.hasObjective = hasObjective;
 	}
+	@Override
+	public String toString() {
+		return "tile location " + location;
+	}
 }

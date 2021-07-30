@@ -284,15 +284,14 @@ public class Javapocalypse implements ActionListener
 		switch (randomMove)
 		{
 		case 0: // Move Zombie North
-			for (Tile tile : gameBoard.tiles)
-			{
+			for (Tile tile : gameBoard.tiles) {
 				if (tile.hasZombie1() && !tile.hasNorthWall())
 				{
-					if (!gameBoard.tiles.get(tile.getTileLocation() - 5).hasZombie1())
+					if (!gameBoard.tiles.get(tile.getTileLocation() -5).hasZombie1())
 					{
 						tile.setHasZombie1(false);
 						gameBoard.tiles.get(tile.getTileLocation() - 5).setHasZombie1(true);
-						break;
+						
 					}
 				}
 
@@ -302,7 +301,6 @@ public class Javapocalypse implements ActionListener
 					{
 						tile.setHasZombie2(false);
 						gameBoard.tiles.get(tile.getTileLocation() - 5).setHasZombie2(true);
-						break;
 					}
 				}
 			}
@@ -316,7 +314,6 @@ public class Javapocalypse implements ActionListener
 					{
 						tile.setHasZombie1(false);
 						gameBoard.tiles.get(tile.getTileLocation() + 5).setHasZombie1(true);
-						break;
 					}
 				}
 				if (tile.hasZombie2() && !tile.hasSouthWall())
@@ -325,7 +322,6 @@ public class Javapocalypse implements ActionListener
 					{
 						tile.setHasZombie2(false);
 						gameBoard.tiles.get(tile.getTileLocation() + 5).setHasZombie2(true);
-						break;
 					}
 				}
 			}
@@ -339,7 +335,6 @@ public class Javapocalypse implements ActionListener
 					{
 						tile.setHasZombie1(false);
 						gameBoard.tiles.get(tile.getTileLocation() - 1).setHasZombie1(true);
-						break;
 					}
 				}
 				if (tile.hasZombie2() && !tile.hasEastWall())
@@ -348,7 +343,6 @@ public class Javapocalypse implements ActionListener
 					{
 						tile.setHasZombie2(false);
 						gameBoard.tiles.get(tile.getTileLocation() - 1).setHasZombie2(true);
-						break;
 					}
 				}
 			}
@@ -362,7 +356,7 @@ public class Javapocalypse implements ActionListener
 					{
 						tile.setHasZombie1(false);
 						gameBoard.tiles.get(tile.getTileLocation() + 1).setHasZombie1(true);
-						break;
+						
 					}
 				}
 				if (tile.hasZombie2() && !tile.hasWestWall())
@@ -371,7 +365,6 @@ public class Javapocalypse implements ActionListener
 					{
 						tile.setHasZombie2(false);
 						gameBoard.tiles.get(tile.getTileLocation() + 1).setHasZombie2(true);
-						break;
 					}
 				}
 			}
