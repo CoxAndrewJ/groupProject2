@@ -237,6 +237,9 @@ public class Javapocalypse implements ActionListener
 		return;
 	}
 
+	/**
+	 * Zombies attack if the player is in the same square
+	 */
 	public static void zombieAttack()
 	{
 		for (Tile tile : gameBoard.tiles)
@@ -277,6 +280,9 @@ public class Javapocalypse implements ActionListener
 
 	}
 
+	/**
+	 * Moves the zombies in a random direction
+	 */
 	public static void zombieMove()
 	{
 		int randomMove = randDirection.nextInt(4);
@@ -419,6 +425,13 @@ public class Javapocalypse implements ActionListener
 
 }
 
+/**
+ * This class has everything to do with the buttons. All of it. Determines what
+ * way the player should move/shoot
+ * 
+ * @author Cody
+ *
+ */
 class BtnActionListener implements ActionListener
 {
 	private int n;
@@ -428,6 +441,7 @@ class BtnActionListener implements ActionListener
 		this.n = n;
 	}
 
+	// Button is pressed. n is determined. Executes the method that matches the n
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -447,6 +461,9 @@ class BtnActionListener implements ActionListener
 		attack();
 	}
 
+	/**
+	 * Checks north, executes action.
+	 */
 	private void north()
 	{
 		// Move
@@ -487,6 +504,9 @@ class BtnActionListener implements ActionListener
 		}
 	}
 
+	/**
+	 * Checks east, executes action
+	 */
 	private void east()
 	{
 		// Move
@@ -528,6 +548,9 @@ class BtnActionListener implements ActionListener
 		}
 	}
 
+	/**
+	 * Checks south, executes actions
+	 */
 	private void south()
 	{
 
@@ -570,6 +593,9 @@ class BtnActionListener implements ActionListener
 		}
 	}
 
+	/**
+	 * Checks west, executes actions
+	 */
 	private void west()
 	{
 		// Move
@@ -612,6 +638,9 @@ class BtnActionListener implements ActionListener
 		}
 	}
 
+	/**
+	 * Player is determined, then they attack the zombies
+	 */
 	private void attack()
 	{
 		// Attack
@@ -636,6 +665,9 @@ class BtnActionListener implements ActionListener
 		}
 	}
 
+	/**
+	 * Resets the buttons at the end of each players turn
+	 */
 	private void fixButtons()
 	{
 		GameBoard.buttonNumberPressed[0] = false;
@@ -646,6 +678,12 @@ class BtnActionListener implements ActionListener
 		GameBoard.gameInteractionPanel.setVisible(true);
 	}
 
+	/**
+	 * What happens when player 1 attacks
+	 * 
+	 * @param target    tile in the direction of the button press
+	 * @param sameTile1 same tile as player
+	 */
 	private void p1Attack(Tile target, Tile sameTile1)
 	{
 		if (sameTile1.hasZombie1() || sameTile1.hasZombie2())
@@ -671,6 +709,12 @@ class BtnActionListener implements ActionListener
 		}
 	}
 
+	/**
+	 * What happens when player 2 attacks
+	 * 
+	 * @param target2
+	 * @param sameTile2
+	 */
 	private void p2Attack(Tile target2, Tile sameTile2)
 	{
 		if (sameTile2.hasZombie1() || sameTile2.hasZombie2())
@@ -694,6 +738,9 @@ class BtnActionListener implements ActionListener
 		}
 	}
 
+	/**
+	 * Moves player 1
+	 */
 	private void p1Move()
 	{
 		Javapocalypse.player1.setLocation(Javapocalypse.player1.getLocation() + n);
@@ -708,6 +755,9 @@ class BtnActionListener implements ActionListener
 		}
 	}
 
+	/**
+	 * Moves player 2
+	 */
 	private void p2Move()
 	{
 		Javapocalypse.player2.setLocation(Javapocalypse.player2.getLocation() + n);
