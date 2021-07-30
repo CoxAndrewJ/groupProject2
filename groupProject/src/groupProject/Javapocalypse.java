@@ -145,7 +145,7 @@ public class Javapocalypse implements ActionListener
 
 			if (objectivesRemaining < 1)
 			{
-				JOptionPane.showMessageDialog(frame, "ALL OBJECTIVES COLLECTED\n     YOU WIN!");
+				JOptionPane.showMessageDialog(frame, "ALL OBJECTIVES COLLECTED\n YOU WIN!");
 				System.exit(0);
 			}
 		}
