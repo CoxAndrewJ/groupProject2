@@ -420,7 +420,7 @@ public class Javapocalypse implements ActionListener
 }
 
 /**
- * Up action is performed
+ * Moves the player up one tile on the game board if allowed.
  * 
  * @author Andrew and Cody
  *
@@ -453,7 +453,10 @@ class UpBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
-
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 				}
@@ -492,6 +495,10 @@ class UpBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 
@@ -506,6 +513,10 @@ class UpBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 
@@ -543,6 +554,10 @@ class UpBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 				}
@@ -565,6 +580,10 @@ class UpBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 
@@ -581,7 +600,7 @@ class UpBtnListener implements ActionListener
 }
 
 /**
- * Down action is performed
+ * Moves the player down one tile on the game board if allowed.
  * 
  * @author Andrew and Cody
  *
@@ -613,6 +632,10 @@ class DownBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 				}
@@ -655,6 +678,10 @@ class DownBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 				}
@@ -668,6 +695,10 @@ class DownBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 
@@ -709,6 +740,10 @@ class DownBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 				}
@@ -731,6 +766,10 @@ class DownBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 
@@ -747,7 +786,7 @@ class DownBtnListener implements ActionListener
 }
 
 /**
- * Left action is performed
+ * Moves the player left one tile on the game board if allowed.
  * 
  * @author Andrew and Cody
  *
@@ -779,6 +818,10 @@ class LeftBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 				}
@@ -799,6 +842,10 @@ class LeftBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 
@@ -820,6 +867,10 @@ class LeftBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 				}
@@ -833,6 +884,10 @@ class LeftBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 
@@ -875,6 +930,10 @@ class LeftBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 				}
@@ -897,6 +956,10 @@ class LeftBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 
@@ -913,7 +976,7 @@ class LeftBtnListener implements ActionListener
 }
 
 /**
- * Right action is performed
+ * Moves the player right one tile on the game board if allowed.
  * 
  * @author Andrew and Cody
  *
@@ -946,6 +1009,10 @@ class RightBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 				}
@@ -966,6 +1033,10 @@ class RightBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 
@@ -987,6 +1058,10 @@ class RightBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 				}
@@ -1000,6 +1075,10 @@ class RightBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 
@@ -1042,6 +1121,10 @@ class RightBtnListener implements ActionListener
 					GameBoard.currentPlayerImage.setIcon(Javapocalypse.player2.getImage());
 					GameBoard.actionsLbl.setText("Actions: " + Javapocalypse.player2.getActions());
 					GameBoard.healthLbl.setText("Health: " + Javapocalypse.player2.getHealth());
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 				}
@@ -1064,6 +1147,11 @@ class RightBtnListener implements ActionListener
 				{
 					Javapocalypse.zombieSpawn(Javapocalypse.gameBoard.tile2, Javapocalypse.gameBoard.tile11,
 							Javapocalypse.gameBoard.tile22, Javapocalypse.gameBoard.tile25);
+
+					GameBoard.buttonNumberPressed[0] = false;
+					GameBoard.buttonNumberPressed[1] = false;
+					GameBoard.buttonNumberPressed[2] = false;
+					GameBoard.buttonNumberPressed[3] = false;
 					GameBoard.directionPanel.setVisible(false);
 					GameBoard.gameInteractionPanel.setVisible(true);
 

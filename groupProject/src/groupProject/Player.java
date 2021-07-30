@@ -7,7 +7,6 @@ public class Player
 
 	private int health = 3;
 	private int location;
-	private Weapon weapon = Weapon.UNARMED;
 	private String name;
 	private ImageIcon image;
 	public int actions;
@@ -63,16 +62,6 @@ public class Player
 	public void setDeadActions()
 	{
 		actions = deadActions;
-	}
-
-	public Weapon getWeapon()
-	{
-		return weapon;
-	}
-
-	public void setWeapon(Weapon weapon)
-	{
-		this.weapon = weapon;
 	}
 
 	public String getName()

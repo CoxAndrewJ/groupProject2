@@ -37,7 +37,7 @@ public class GameBoard implements ActionListener
 	public static JLabel currentPlayerImage;
 	public static JLabel healthLbl;
 
-	private boolean[] buttonNumberPressed =
+	public static boolean[] buttonNumberPressed =
 	{ false, false, false, false };
 
 	public List<Integer> buildingSquares = new ArrayList<>();
@@ -316,13 +316,11 @@ public class GameBoard implements ActionListener
 		{
 			writer.println(player1.getName());
 			writer.println(player1.getHealth());
-			writer.println(player1.getWeapon());
 			writer.println(player1.getImage());
 			writer.println(player1.getLocation());
 
 			writer.println(player2.getName());
 			writer.println(player2.getHealth());
-			writer.println(player2.getWeapon());
 			writer.println(player2.getImage());
 			writer.println(player2.getLocation());
 
