@@ -64,8 +64,11 @@ public class GameBoard implements ActionListener
 		file = new JMenu("File");
 		mb.add(file);
 		JMenuItem save = new JMenuItem("Save");
+		JMenuItem load = new JMenuItem("Load");
 		file.add(save);
+		file.add(load);
 		save.addActionListener(this);
+		load.addActionListener(this);
 		JTextArea ta = new JTextArea();
 		ta.setBounds(5, 5, 360, 320);
 		mainFrame.getContentPane().add(ta);
